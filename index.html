@@ -1,1 +1,217 @@
-<h1>Hello! I'm aka-ips 🦞</h1>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>昌林メディカルジャパン株式会社</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--green:#1a3a2a;--gold:#c9a84c;--cream:#f8f4ee;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--cream);}
+nav{position:fixed;top:0;width:100%;padding:1.2rem 4rem;display:flex;justify-content:space-between;align-items:center;background:rgba(248,244,238,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,0.2);z-index:1000;}
+.logo{font-size:1rem;font-weight:600;color:var(--green);text-decoration:none;}
+.logo span{display:block;font-size:0.6rem;color:var(--gold);letter-spacing:0.15em;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-size:0.8rem;color:#444;text-decoration:none;transition:color 0.3s;}
+.nav-links a:hover{color:var(--green);}
+.hero{min-height:100vh;display:flex;align-items:center;background:linear-gradient(135deg,#1a3a2a,#2d6a4f);padding:0 4rem;}
+.hero-tag{font-size:0.7rem;letter-spacing:0.3em;color:#e8c96a;display:block;margin-bottom:1.5rem;}
+.hero h1{font-family:'Noto Serif JP',serif;font-size:3.5rem;font-weight:300;color:#fff;line-height:1.6;margin-bottom:1.5rem;}
+.hero h1 em{font-style:normal;color:#e8c96a;}
+.hero p{font-size:0.95rem;color:rgba(255,255,255,0.7);line-height:2;margin-bottom:2.5rem;}
+.btn{background:var(--gold);color:var(--green);padding:1rem 2.5rem;font-size:0.85rem;letter-spacing:0.15em;text-decoration:none;border-radius:2px;display:inline-block;transition:all 0.3s;margin-right:1rem;}
+.btn:hover{background:#e8c96a;transform:translateY(-2px);}
+.btn-outline{border:1px solid rgba(255,255,255,0.4);color:#fff;padding:1rem 2.5rem;font-size:0.85rem;letter-spacing:0.15em;text-decoration:none;border-radius:2px;display:inline-block;transition:all 0.3s;}
+.btn-outline:hover{border-color:#e8c96a;color:#e8c96a;}
+.security-bar{background:#2d6a4f;padding:0.8rem 4rem;display:flex;justify-content:center;gap:3rem;}
+.sec-item{font-size:0.75rem;color:rgba(255,255,255,0.8);}
+section{padding:6rem 4rem;}
+.tag{font-size:0.7rem;letter-spacing:0.3em;color:var(--gold);display:block;margin-bottom:1rem;}
+h2{font-family:'Noto Serif JP',serif;font-size:2.5rem;font-weight:300;color:var(--green);margin-bottom:1.5rem;}
+.concept{background:#fff;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.concept-visual{height:400px;background:linear-gradient(135deg,var(--green),#2d6a4f);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:8rem;opacity:0.8;}
+.products{background:var(--cream);}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;}
+.card{background:#fff;border-radius:4px;overflow:hidden;transition:all 0.4s;}
+.card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,0.1);}
+.card-img{height:200px;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(135deg,var(--green),#2d6a4f);}
+.card-body{padding:1.5rem;}
+.card h3{font-family:'Noto Serif JP',serif;font-size:1.1rem;color:var(--green);margin-bottom:0.5rem;}
+.card p{font-size:0.8rem;color:#888;line-height:1.8;margin-bottom:1rem;}
+.price{font-size:1.3rem;color:var(--gold);font-weight:600;}
+.buy-btn{display:block;width:100%;padding:0.8rem;background:var(--green);color:#fff;text-align:center;font-size:0.8rem;letter-spacing:0.15em;border:none;cursor:pointer;margin-top:1rem;border-radius:2px;text-decoration:none;}
+.news{background:var(--green);color:#fff;}
+.news h2{color:#fff;}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;}
+.news-card{border-top:1px solid rgba(255,255,255,0.15);padding-top:1.5rem;}
+.news-date{font-size:0.7rem;color:#e8c96a;margin-bottom:0.8rem;}
+.news-title{font-size:1rem;color:#fff;line-height:1.7;margin-bottom:0.8rem;}
+.sns{background:var(--cream);text-align:center;}
+.sns-icons{display:flex;justify-content:center;gap:2rem;margin-top:3rem;}
+.sns-card{display:flex;flex-direction:column;align-items:center;gap:1rem;text-decoration:none;padding:2rem 3rem;background:#fff;border-radius:4px;transition:all 0.3s;min-width:150px;}
+.sns-card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,0,0,0.1);}
+.sns-icon{width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;}
+.ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
+.tt{background:#000;}
+.ln{background:#06c755;}
+.sns-name{font-size:0.85rem;font-weight:500;color:#444;}
+.contact{background:#fff;display:grid;grid-template-columns:1fr 1fr;gap:5rem;}
+.form-group{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1.2rem;}
+.form-group label{font-size:0.75rem;letter-spacing:0.15em;color:#444;}
+.form-group input,.form-group textarea,.form-group select{padding:0.9rem 1rem;border:1px solid rgba(0,0,0,0.12);border-radius:2px;font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;background:var(--cream);outline:none;}
+.form-group textarea{min-height:150px;}
+.submit{background:var(--green);color:#fff;border:none;padding:1rem;width:100%;font-size:0.85rem;letter-spacing:0.2em;cursor:pointer;border-radius:2px;}
+footer{background:var(--green);color:#fff;padding:4rem;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.1);}
+.footer-logo{font-size:1.1rem;margin-bottom:1rem;}
+.footer-tagline{font-size:0.8rem;color:rgba(255,255,255,0.5);line-height:2;}
+.footer-col h4{font-size:0.7rem;letter-spacing:0.25em;color:#e8c96a;margin-bottom:1.2rem;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:0.8rem;}
+.footer-col ul a{font-size:0.8rem;color:rgba(255,255,255,0.5);text-decoration:none;}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;}
+.footer-copy{font-size:0.75rem;color:rgba(255,255,255,0.3);}
+</style>
+</head>
+<body>
+<nav>
+  <a href="#" class="logo">昌林メディカルジャパン株式会社<span>SYORIN MEDICAL JAPAN CO., LTD.</span></a>
+  <ul class="nav-links">
+    <li><a href="#concept">コンセプト</a></li>
+    <li><a href="#products">プロダクト</a></li>
+    <li><a href="#news">ニュース</a></li>
+    <li><a href="#sns">SNS</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div>
+    <span class="hero-tag">Syorin Medical Japan Co., Ltd.</span>
+    <h1>人々の<em>明日への一歩</em>を<br>応援します</h1>
+    <p>自然素材を活かした高品質な健康食品で<br>健康で豊かな明日を目指し<br>安全かつ効果的な商品で皆様の健康と美をサポート</p>
+    <a href="#products" class="btn">プロダクトを見る</a>
+    <a href="#concept" class="btn-outline">私たちについて</a>
+  </div>
+</section>
+<div class="security-bar">
+  <span class="sec-item">🔒 SSL暗号化通信</span>
+  <span class="sec-item">🛡️ 個人情報保護方針準拠</span>
+  <span class="sec-item">✅ 安全な決済システム</span>
+  <span class="sec-item">🌿 品質保証済み</span>
+</div>
+<section class="concept" id="concept">
+  <div class="concept-visual">🌿</div>
+  <div>
+    <span class="tag">Our Concept</span>
+    <h2>私たちの思い</h2>
+    <p style="font-size:0.95rem;color:#444;line-height:2;">昌林メディカルジャパンは、自然の恵みを大切にしながら、最高品質の健康食品を提供することで、皆様の豊かな生活をサポートします。厳選された自然素材と最先端の技術を融合させ、安全で効果的な製品づくりに取り組んでいます。</p>
+  </div>
+</section>
+<section class="products" id="products">
+  <span class="tag">Our Products</span>
+  <h2>プロダクト</h2>
+  <div class="products-grid">
+    <div class="card">
+      <div class="card-img">🍫</div>
+      <div class="card-body">
+        <h3>acho</h3>
+        <p>健康食品業界初！革新的なチョコレートサプリ。銀杏葉、冬虫夏草粉末などの自然成分配合。</p>
+        <div class="price">¥5,980</div>
+        <a href="#contact" class="buy-btn">購入する</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img" style="background:linear-gradient(135deg,#c9a84c,#e8c96a);">🌾</div>
+      <div class="card-body">
+        <h3>ASHITAGAA-RU</h3>
+        <p>ウコン＋肝臓エキス＋水素。肝機能をサポートしデトックス効果を高める健康食品。</p>
+        <div class="price">¥7,480</div>
+        <a href="#contact" class="buy-btn">購入する</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img" style="background:linear-gradient(135deg,#1a3a2a,#52b788);">💊</div>
+      <div class="card-body">
+        <h3>NMN Premium15000</h3>
+        <p>99.999%高含量のβ-NMNを主成分。国内製造・腸まで届く耐酸性カプセル。</p>
+        <div class="price">¥19,800</div>
+        <a href="#contact" class="buy-btn">購入する</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="news" id="news">
+  <span class="tag" style="color:#e8c96a;">News & Blog</span>
+  <h2>ニュース・ブログ</h2>
+  <div class="news-grid">
+    <div class="news-card">
+      <div class="news-date">2026.03.05</div>
+      <div class="news-title">新商品「NMN Premium15000」のご紹介</div>
+    </div>
+    <div class="news-card">
+      <div class="news-date">2026.02.20</div>
+      <div class="news-title">健康食品の正しい選び方について</div>
+    </div>
+    <div class="news-card">
+      <div class="news-date">2026.02.01</div>
+      <div class="news-title">春の健康習慣キャンペーン開始</div>
+    </div>
+  </div>
+</section>
+<section class="sns" id="sns">
+  <span class="tag">Follow Us</span>
+  <h2>SNSでフォローする</h2>
+  <div class="sns-icons">
+    <a href="https://instagram.com" target="_blank" class="sns-card">
+      <div class="sns-icon ig">📸</div>
+      <span class="sns-name">Instagram</span>
+    </a>
+    <a href="https://tiktok.com" target="_blank" class="sns-card">
+      <div class="sns-icon tt">🎵</div>
+      <span class="sns-name">TikTok</span>
+    </a>
+    <a href="https://line.me" target="_blank" class="sns-card">
+      <div class="sns-icon ln">💬</div>
+      <span class="sns-name">LINE</span>
+    </a>
+  </div>
+</section>
+<section class="contact" id="contact">
+  <div>
+    <span class="tag">Contact Us</span>
+    <h2>お問い合わせ</h2>
+    <p style="font-size:0.95rem;color:#444;line-height:2;margin-bottom:2rem;">ご質問・ご相談はお気軽にお問い合わせください。</p>
+    <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(0,0,0,0.06);">
+      <div style="font-size:0.7rem;letter-spacing:0.15em;color:var(--gold);margin-bottom:0.3rem;">COMPANY</div>
+      <div>昌林メディカルジャパン株式会社</div>
+    </div>
+    <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(0,0,0,0.06);">
+      <div style="font-size:0.7rem;letter-spacing:0.15em;color:var(--gold);margin-bottom:0.3rem;">EMAIL</div>
+      <div>info@syorinmedical.jp</div>
+    </div>
+  </div>
+  <div>
+    <div class="form-group"><label>お名前</label><input type="text" placeholder="山田 太郎"></div>
+    <div class="form-group"><label>メールアドレス</label><input type="email" placeholder="your@email.com"></div>
+    <div class="form-group"><label>お問い合わせ種別</label><select><option>製品について</option><option>ご注文について</option><option>その他</option></select></div>
+    <div class="form-group"><label>メッセージ</label><textarea placeholder="お問い合わせ内容"></textarea></div>
+    <button class="submit" onclick="alert('送信しました！')">送信する →</button>
+  </div>
+</section>
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">昌林メディカルジャパン株式会社</div>
+      <p class="footer-tagline">人々の明日への一歩を応援します<br>自然素材を活かした高品質な健康食品</p>
+    </div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="#concept">コンセプト</a></li><li><a href="#products">プロダクト</a></li><li><a href="#news">ニュース</a></li></ul></div>
+    <div class="footer-col"><h4>Products</h4><ul><li><a href="#products">acho</a></li><li><a href="#products">ASHITAGAA-RU</a></li><li><a href="#products">NMN Premium15000</a></li></ul></div>
+    <div class="footer-col"><h4>Legal</h4><ul><li><a href="#">特定商取引法</a></li><li><a href="#">プライバシーポリシー</a></li><li><a href="#">利用規約</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 昌林メディカルジャパン株式会社. All Rights Reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
