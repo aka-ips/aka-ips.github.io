@@ -153,6 +153,12 @@ footer{background:var(--dark);color:rgba(255,255,255,0.5);padding:2.5rem 2rem 1.
 .footer-links a:hover{color:#fff;}
 .footer-copy{font-size:0.7rem;color:rgba(255,255,255,0.25);}
 
+/* FORM TABS */
+.form-tab{padding:0.65rem 1.4rem;border-radius:50px;border:2px solid var(--primary);color:var(--primary);font-weight:700;cursor:pointer;font-size:0.88rem;transition:all 0.2s;background:transparent;font-family:inherit;}
+.form-tab.active,.form-tab:hover{background:var(--primary);color:#fff;}
+.form-panel-title{font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:1.5rem;padding-bottom:0.8rem;border-bottom:2px solid var(--light);}
+.form-panel-note{background:rgba(212,175,55,0.1);border:1px solid var(--gold);border-radius:8px;padding:0.8rem 1rem;font-size:0.8rem;color:#666;margin-bottom:1.2rem;line-height:1.7;}
+
 /* RESPONSIVE */
 @media(max-width:768px){
   nav a:not(.btn-nav){display:none;}
@@ -438,41 +444,147 @@ footer{background:var(--dark);color:rgba(255,255,255,0.5);padding:2.5rem 2rem 1.
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-  <p class="section-label">Contact</p>
-  <h2 class="section-title" data-ja="お問い合わせ・発注" data-en="Contact & Order" data-zh="联系与下单">お問い合わせ・発注</h2>
-  <p class="section-desc" data-ja="ご質問・お見積もり・ご発注はこちらから。3営業日以内にご返信します。" data-en="Questions, quotes & orders welcome. Reply within 3 business days." data-zh="欢迎咨询、报价和下单，3个工作日内回复。">ご質問・お見積もり・ご発注はこちらから。3営業日以内にご返信します。</p>
-  <div class="contact-wrap">
+  <p class="section-label">Contact & Order</p>
+  <h2 class="section-title" data-ja="お問い合わせ・ご発注フォーム" data-en="Contact & Order Form" data-zh="咨询与下单表单">お問い合わせ・ご発注フォーム</h2>
+  <p class="section-desc" data-ja="サービスを選択すると、専用フォームが表示されます。3営業日以内にご返信します。" data-en="Select a service to display the dedicated form. We reply within 3 business days." data-zh="选择服务后将显示专属表单，3个工作日内回复。">サービスを選択すると、専用フォームが表示されます。3営業日以内にご返信します。</p>
+
+  <!-- SERVICE SELECTOR TABS -->
+  <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:0.7rem;margin-bottom:2.5rem;">
+    <button class="form-tab active" onclick="showForm('website')" data-ja="🌐 HP制作" data-en="🌐 Website" data-zh="🌐 网站制作">🌐 HP制作</button>
+    <button class="form-tab" onclick="showForm('openclaw')" data-ja="⚡ OpenClaw" data-en="⚡ OpenClaw" data-zh="⚡ OpenClaw">⚡ OpenClaw</button>
+    <button class="form-tab" onclick="showForm('ai')" data-ja="🤖 AIツール" data-en="🤖 AI Tool" data-zh="🤖 AI工具">🤖 AIツール</button>
+    <button class="form-tab" onclick="showForm('app')" data-ja="📱 APP制作" data-en="📱 APP Dev" data-zh="📱 APP开发">📱 APP制作</button>
+  </div>
+
+  <!-- FORM: HP制作 -->
+  <div class="contact-wrap form-panel" id="form-website">
+    <div class="form-panel-title">🌐 <span data-ja="ホームページ制作 お申し込みフォーム" data-en="Website Development Form" data-zh="网站制作申请表单">ホームページ制作 お申し込みフォーム</span></div>
     <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="hidden" name="service_type" value="HP制作">
+      <div class="form-row"><label>お名前 <span>*</span></label><input type="text" name="name" required></div>
+      <div class="form-row"><label>会社名</label><input type="text" name="company"></div>
+      <div class="form-row"><label>メールアドレス <span>*</span></label><input type="email" name="email" required></div>
       <div class="form-row">
-        <label data-ja="お名前" data-en="Name" data-zh="姓名">お名前 <span>*</span></label>
-        <input type="text" name="name" required>
+        <label>希望HP種類 <span>*</span></label>
+        <select name="hp_type" required>
+          <option value="">選択してください</option>
+          <option>コーポレートサイト</option>
+          <option>ランディングページ（LP）</option>
+          <option>ECサイト（ネットショップ）</option>
+          <option>多言語対応HP（日英中）</option>
+          <option>AI搭載HP</option>
+          <option>予約・管理システム</option>
+        </select>
       </div>
+      <div class="form-row"><label>参考サイトURL</label><input type="url" name="ref_url" placeholder="https://"></div>
       <div class="form-row">
-        <label data-ja="会社名" data-en="Company" data-zh="公司名">会社名</label>
-        <input type="text" name="company">
+        <label>ご予算 <span>*</span></label>
+        <select name="budget" required>
+          <option value="">選択してください</option>
+          <option>〜5万円</option><option>5〜15万円</option><option>15〜30万円</option><option>30万円以上</option><option>要相談</option>
+        </select>
       </div>
+      <div class="form-row"><label>納期希望</label><input type="text" name="deadline" placeholder="標準3日間 / ご希望があれば記入"></div>
+      <div class="form-row"><label>ご要望・備考 <span>*</span></label><textarea name="message" placeholder="制作したいHPの内容・イメージをご記入ください。" required></textarea></div>
+      <button type="submit" class="form-submit">🌐 HP制作を申し込む →</button>
+      <p class="form-note">※ 全て税抜。送信後3営業日以内にご連絡します。</p>
+    </form>
+  </div>
+
+  <!-- FORM: OpenClaw -->
+  <div class="contact-wrap form-panel" id="form-openclaw" style="display:none;">
+    <div class="form-panel-title">⚡ <span data-ja="OpenClawツール構築 お申し込みフォーム" data-en="OpenClaw Build Form" data-zh="OpenClaw构建申请表单">OpenClawツール構築 お申し込みフォーム</span></div>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="hidden" name="service_type" value="OpenClawツール構築">
+      <div class="form-row"><label>お名前 <span>*</span></label><input type="text" name="name" required></div>
+      <div class="form-row"><label>会社名</label><input type="text" name="company"></div>
+      <div class="form-row"><label>メールアドレス <span>*</span></label><input type="email" name="email" required></div>
       <div class="form-row">
-        <label data-ja="メールアドレス" data-en="Email" data-zh="邮箱">メールアドレス <span>*</span></label>
-        <input type="email" name="email" required>
-      </div>
-      <div class="form-row">
-        <label data-ja="ご希望のサービス" data-en="Service" data-zh="所需服务">ご希望のサービス <span>*</span></label>
-        <select name="service" required>
-          <option value="" data-ja="選択してください" data-en="Select..." data-zh="请选择">選択してください</option>
-          <option value="ai" data-ja="AIツール構築" data-en="AI Tool Development" data-zh="AI工具构建">AIツール構築</option>
-          <option value="openclaw-cloud" data-ja="OpenClaw（クラウドAI型）" data-en="OpenClaw (Cloud AI)" data-zh="OpenClaw（云端AI）">OpenClaw（クラウドAI型）</option>
-          <option value="openclaw-local" data-ja="OpenClaw（ローカルAI型）" data-en="OpenClaw (Local AI)" data-zh="OpenClaw（本地AI）">OpenClaw（ローカルAI型）</option>
-          <option value="website" data-ja="ホームページ制作" data-en="Website Development" data-zh="网站制作">ホームページ制作</option>
-          <option value="app" data-ja="APP制作" data-en="App Development" data-zh="APP开发">APP制作</option>
-          <option value="other" data-ja="その他・複合" data-en="Other / Combined" data-zh="其他/组合">その他・複合</option>
+        <label>プラン選択 <span>*</span></label>
+        <select name="plan" required>
+          <option value="">選択してください</option>
+          <option value="cloud">☁️ Claudeパターン（クラウドAI型）¥5,000/月</option>
+          <option value="local">🖥️ ローカルエージェントパターン ¥50,000/回（1週間トレーニング込）</option>
         </select>
       </div>
       <div class="form-row">
-        <label data-ja="お問い合わせ内容" data-en="Message" data-zh="咨询内容">お問い合わせ内容 <span>*</span></label>
-        <textarea name="message" required></textarea>
+        <label>Mac mini所有 <span>*</span></label>
+        <select name="macmini" required>
+          <option value="">選択してください</option>
+          <option>持っている</option><option>持っていない</option><option>購入予定</option>
+        </select>
       </div>
-      <button type="submit" class="form-submit" data-ja="送信する →" data-en="Send →" data-zh="发送 →">送信する →</button>
-      <p class="form-note" data-ja="※ 送信後、自動返信メールをお送りします。3営業日以内にご連絡いたします。" data-en="※ Auto-reply will be sent. We'll contact you within 3 business days." data-zh="※ 提交后将收到自动回复邮件，3个工作日内联系您。">※ 送信後、自動返信メールをお送りします。3営業日以内にご連絡いたします。</p>
+      <div class="form-row"><label>希望機能・自動化したい内容 <span>*</span></label><textarea name="features" placeholder="例：メール自動返信、カレンダー管理、Notion連携など" required></textarea></div>
+      <div class="form-row">
+        <label>ご予算</label>
+        <select name="budget">
+          <option value="">選択してください</option>
+          <option>月額プラン（¥5,000〜）</option><option>初回構築（¥50,000）</option><option>要相談</option>
+        </select>
+      </div>
+      <div class="form-panel-note">
+        ⚠️ ローカルプランご注意事項：①1週間トレーニング込み ②バグ保守/週（別途） ③バージョンアップは別相談
+      </div>
+      <button type="submit" class="form-submit">⚡ OpenClaw構築を申し込む →</button>
+      <p class="form-note">※ 全て税抜。APIチャージ発生時は別途。送信後3営業日以内にご連絡します。</p>
+    </form>
+  </div>
+
+  <!-- FORM: AIツール -->
+  <div class="contact-wrap form-panel" id="form-ai" style="display:none;">
+    <div class="form-panel-title">🤖 <span data-ja="AIツール構築 お申し込みフォーム" data-en="AI Tool Development Form" data-zh="AI工具构建申请表单">AIツール構築 お申し込みフォーム</span></div>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="hidden" name="service_type" value="AIツール構築">
+      <div class="form-row"><label>お名前 <span>*</span></label><input type="text" name="name" required></div>
+      <div class="form-row"><label>会社名</label><input type="text" name="company"></div>
+      <div class="form-row"><label>メールアドレス <span>*</span></label><input type="email" name="email" required></div>
+      <div class="form-row">
+        <label>使いたいAI <span>*</span></label>
+        <select name="ai_type" required>
+          <option value="">選択してください</option>
+          <option>Claude（Anthropic）</option><option>Gemini（Google）</option><option>ChatGPT（OpenAI）</option><option>ローカルAI（Ollama等）</option><option>おまかせ・要相談</option>
+        </select>
+      </div>
+      <div class="form-row"><label>自動化したい業務内容 <span>*</span></label><textarea name="automation" placeholder="例：問い合わせ自動返信、報告書作成、データ分析など" required></textarea></div>
+      <div class="form-row"><label>現在の課題・困っていること</label><textarea name="issues" placeholder="現在の業務で困っていることをご記入ください。"></textarea></div>
+      <div class="form-row">
+        <label>ご予算</label>
+        <select name="budget">
+          <option value="">選択してください</option>
+          <option>〜10万円</option><option>10〜30万円</option><option>30万円以上</option><option>要相談</option>
+        </select>
+      </div>
+      <button type="submit" class="form-submit">🤖 AIツール構築を申し込む →</button>
+      <p class="form-note">※ 全て税抜。送信後3営業日以内にご連絡します。</p>
+    </form>
+  </div>
+
+  <!-- FORM: APP制作 -->
+  <div class="contact-wrap form-panel" id="form-app" style="display:none;">
+    <div class="form-panel-title">📱 <span data-ja="APP制作 お申し込みフォーム" data-en="App Development Form" data-zh="APP开发申请表单">APP制作 お申し込みフォーム</span></div>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="hidden" name="service_type" value="APP制作">
+      <div class="form-row"><label>お名前 <span>*</span></label><input type="text" name="name" required></div>
+      <div class="form-row"><label>会社名</label><input type="text" name="company"></div>
+      <div class="form-row"><label>メールアドレス <span>*</span></label><input type="email" name="email" required></div>
+      <div class="form-row">
+        <label>対応OS <span>*</span></label>
+        <select name="os" required>
+          <option value="">選択してください</option>
+          <option>iOS（iPhone）のみ</option><option>Android のみ</option><option>iOS・Android 両対応</option>
+        </select>
+      </div>
+      <div class="form-row"><label>アプリの目的・機能概要 <span>*</span></label><textarea name="features" placeholder="例：予約管理アプリ、社内業務管理、ECアプリなど" required></textarea></div>
+      <div class="form-row">
+        <label>ご予算</label>
+        <select name="budget">
+          <option value="">選択してください</option>
+          <option>〜30万円</option><option>30〜50万円</option><option>50万円以上</option><option>要相談</option>
+        </select>
+      </div>
+      <div class="form-row"><label>納期希望</label><input type="text" name="deadline" placeholder="例：2026年5月末まで"></div>
+      <button type="submit" class="form-submit">📱 APP制作を申し込む →</button>
+      <p class="form-note">※ 全て税抜。送信後3営業日以内にご連絡します。</p>
     </form>
   </div>
 </section>
@@ -508,6 +620,15 @@ function setLang(lang){
     }
   });
   document.documentElement.lang = lang==='zh'?'zh-CN':lang;
+}
+
+// FORM TABS
+function showForm(type){
+  document.querySelectorAll('.form-panel').forEach(p=>p.style.display='none');
+  document.querySelectorAll('.form-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('form-'+type).style.display='block';
+  event.currentTarget.classList.add('active');
+  document.getElementById('contact').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 // SMOOTH SCROLL
