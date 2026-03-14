@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPS IT Solutions | 生成AI構築・オートメーション・ホームページ・APP制作</title>
+<meta name="description" content="IPS IT Solutionsは昌林メディカルジャパン生成AI構築事業企画部が提供するAIツール構築・OpenClawオートメーション・ホームページ制作・APP制作サービスです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #0a2463;
+    --accent: #3e92cc;
+    --gold: #d4af37;
+    --dark: #0d0d1a;
+    --light: #f8f9ff;
+    --text: #2d2d3a;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Noto Sans JP','Inter',sans-serif; color:var(--text); background:#fff; }
+
+  /* ===== HEADER ===== */
+  header {
+    position:fixed; top:0; width:100%; z-index:1000;
+    background:rgba(10,36,99,0.95); backdrop-filter:blur(10px);
+    padding:0 2rem;
+  }
+  .header-inner {
+    max-width:1200px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    height:70px;
+  }
+  .logo { color:#fff; text-decoration:none; }
+  .logo-main { font-size:1.3rem; font-weight:700; letter-spacing:0.05em; }
+  .logo-sub { font-size:0.65rem; color:var(--accent); letter-spacing:0.15em; display:block; }
+  nav a {
+    color:rgba(255,255,255,0.85); text-decoration:none;
+    margin-left:2rem; font-size:0.85rem; font-weight:400;
+    transition:color 0.2s;
+  }
+  nav a:hover { color:var(--gold); }
+  .btn-contact-header {
+    background:var(--gold); color:var(--dark); padding:0.5rem 1.2rem;
+    border-radius:4px; font-size:0.85rem; font-weight:700;
+    text-decoration:none; margin-left:2rem; transition:opacity 0.2s;
+  }
+  .btn-contact-header:hover { opacity:0.85; }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height:100vh; background:linear-gradient(135deg, var(--dark) 0%, var(--primary) 60%, #1a4a8a 100%);
+    display:flex; align-items:center; position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; width:600px; height:600px;
+    background:radial-gradient(circle, rgba(62,146,204,0.15) 0%, transparent 70%);
+    top:-100px; right:-100px;
+  }
+  .hero::after {
+    content:''; position:absolute; width:400px; height:400px;
+    background:radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%);
+    bottom:-50px; left:10%;
+  }
+  .hero-content {
+    max-width:1200px; margin:0 auto; padding:8rem 2rem 4rem;
+    position:relative; z-index:1;
+  }
+  .hero-badge {
+    display:inline-block; background:rgba(212,175,55,0.15);
+    border:1px solid var(--gold); color:var(--gold);
+    padding:0.4rem 1rem; border-radius:20px; font-size:0.75rem;
+    letter-spacing:0.15em; margin-bottom:1.5rem;
+  }
+  .hero h1 {
+    font-size:clamp(2rem, 5vw, 3.5rem); color:#fff;
+    font-weight:700; line-height:1.2; margin-bottom:1.5rem;
+  }
+  .hero h1 em { color:var(--accent); font-style:normal; }
+  .hero p {
+    font-size:1.1rem; color:rgba(255,255,255,0.75);
+    max-width:600px; line-height:1.9; margin-bottom:2.5rem;
+  }
+  .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
+  .btn-primary {
+    background:var(--gold); color:var(--dark); padding:0.9rem 2.5rem;
+    border-radius:6px; font-weight:700; text-decoration:none;
+    font-size:1rem; transition:transform 0.2s, opacity 0.2s;
+    display:inline-block;
+  }
+  .btn-primary:hover { transform:translateY(-2px); opacity:0.9; }
+  .btn-outline {
+    border:2px solid rgba(255,255,255,0.4); color:#fff;
+    padding:0.9rem 2.5rem; border-radius:6px; font-weight:400;
+    text-decoration:none; font-size:1rem; transition:border-color 0.2s;
+    display:inline-block;
+  }
+  .btn-outline:hover { border-color:#fff; }
+
+  /* ===== SERVICES ===== */
+  .services { padding:6rem 2rem; background:var(--light); }
+  .section-label {
+    text-align:center; font-size:0.75rem; letter-spacing:0.3em;
+    color:var(--accent); text-transform:uppercase; margin-bottom:0.8rem;
+  }
+  .section-title {
+    text-align:center; font-size:clamp(1.5rem, 3vw, 2.2rem);
+    font-weight:700; color:var(--primary); margin-bottom:1rem;
+  }
+  .section-desc {
+    text-align:center; color:#666; max-width:600px;
+    margin:0 auto 3.5rem; line-height:1.8;
+  }
+  .service-grid {
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:1.5rem; max-width:1200px; margin:0 auto;
+  }
+  .service-card {
+    background:#fff; border-radius:12px; padding:2rem;
+    box-shadow:0 4px 20px rgba(0,0,0,0.06);
+    transition:transform 0.3s, box-shadow 0.3s;
+    border-top:3px solid var(--accent);
+  }
+  .service-card:hover { transform:translateY(-6px); box-shadow:0 12px 40px rgba(0,0,0,0.12); }
+  .service-icon { font-size:2.5rem; margin-bottom:1rem; }
+  .service-card h3 { font-size:1.1rem; font-weight:700; color:var(--primary); margin-bottom:0.8rem; }
+  .service-card p { font-size:0.9rem; color:#666; line-height:1.8; }
+  .service-tag {
+    display:inline-block; background:rgba(62,146,204,0.1); color:var(--accent);
+    font-size:0.7rem; padding:0.2rem 0.6rem; border-radius:10px;
+    margin-top:1rem; letter-spacing:0.05em;
+  }
+
+  /* ===== FLOW ===== */
+  .flow { padding:6rem 2rem; background:#fff; }
+  .flow-steps {
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap:2rem; max-width:1000px; margin:0 auto; position:relative;
+  }
+  .flow-step { text-align:center; }
+  .flow-num {
+    width:56px; height:56px; border-radius:50%;
+    background:var(--primary); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.3rem; font-weight:700; margin:0 auto 1rem;
+  }
+  .flow-step h4 { font-size:1rem; font-weight:700; color:var(--primary); margin-bottom:0.5rem; }
+  .flow-step p { font-size:0.85rem; color:#666; line-height:1.7; }
+
+  /* ===== PRICING ===== */
+  .pricing { padding:6rem 2rem; background:var(--light); }
+  .pricing-grid {
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:1.5rem; max-width:1000px; margin:0 auto;
+  }
+  .price-card {
+    background:#fff; border-radius:12px; padding:2.5rem;
+    box-shadow:0 4px 20px rgba(0,0,0,0.06);
+    border:2px solid transparent; transition:border 0.3s;
+  }
+  .price-card.featured {
+    border:2px solid var(--accent);
+    position:relative; transform:scale(1.03);
+  }
+  .price-badge {
+    position:absolute; top:-12px; left:50%; transform:translateX(-50%);
+    background:var(--accent); color:#fff; font-size:0.7rem;
+    padding:0.3rem 1rem; border-radius:10px; letter-spacing:0.1em;
+  }
+  .price-plan { font-size:0.8rem; color:var(--accent); letter-spacing:0.2em; margin-bottom:0.5rem; }
+  .price-name { font-size:1.3rem; font-weight:700; color:var(--primary); margin-bottom:1rem; }
+  .price-amount { font-size:2rem; font-weight:700; color:var(--primary); }
+  .price-amount span { font-size:0.9rem; font-weight:400; color:#888; }
+  .price-from { font-size:0.75rem; color:#888; margin-bottom:1.5rem; }
+  .price-features { list-style:none; margin-bottom:2rem; }
+  .price-features li {
+    font-size:0.85rem; color:#555; padding:0.5rem 0;
+    border-bottom:1px solid #f0f0f0;
+    display:flex; align-items:center; gap:0.5rem;
+  }
+  .price-features li::before { content:'✓'; color:var(--accent); font-weight:700; }
+  .btn-plan {
+    display:block; text-align:center; padding:0.8rem;
+    border-radius:6px; font-weight:700; font-size:0.9rem;
+    text-decoration:none; transition:opacity 0.2s;
+  }
+  .btn-plan-primary { background:var(--primary); color:#fff; }
+  .btn-plan-outline { border:2px solid var(--primary); color:var(--primary); }
+  .btn-plan:hover { opacity:0.85; }
+  .pricing-note {
+    text-align:center; color:#888; font-size:0.8rem;
+    margin-top:2rem;
+  }
+
+  /* ===== LINE SECTION ===== */
+  .line-section {
+    background:linear-gradient(135deg, #06c755 0%, #00a040 100%);
+    padding:4rem 2rem; text-align:center;
+  }
+  .line-section h2 { font-size:1.8rem; color:#fff; font-weight:700; margin-bottom:1rem; }
+  .line-section p { color:rgba(255,255,255,0.85); margin-bottom:2rem; font-size:1rem; line-height:1.8; }
+  .btn-line {
+    display:inline-block; background:#fff; color:#06c755;
+    padding:1rem 2.5rem; border-radius:50px; font-weight:700;
+    font-size:1rem; text-decoration:none; transition:transform 0.2s;
+  }
+  .btn-line:hover { transform:translateY(-2px); }
+
+  /* ===== CONTACT ===== */
+  .contact { padding:6rem 2rem; background:#fff; }
+  .contact-wrap {
+    max-width:700px; margin:0 auto;
+    background:var(--light); border-radius:16px; padding:3rem;
+    box-shadow:0 4px 30px rgba(0,0,0,0.08);
+  }
+  .form-row { margin-bottom:1.5rem; }
+  .form-row label {
+    display:block; font-size:0.85rem; font-weight:700;
+    color:var(--primary); margin-bottom:0.5rem;
+  }
+  .form-row label span { color:#e74c3c; margin-left:0.3rem; }
+  .form-row input, .form-row select, .form-row textarea {
+    width:100%; padding:0.9rem 1rem; border:2px solid #e8e8f0;
+    border-radius:8px; font-size:0.95rem; font-family:inherit;
+    transition:border-color 0.2s; background:#fff;
+  }
+  .form-row input:focus, .form-row select:focus, .form-row textarea:focus {
+    outline:none; border-color:var(--accent);
+  }
+  .form-row textarea { height:140px; resize:vertical; }
+  .form-submit {
+    width:100%; padding:1.1rem; background:var(--primary);
+    color:#fff; border:none; border-radius:8px;
+    font-size:1rem; font-weight:700; cursor:pointer;
+    transition:background 0.2s;
+  }
+  .form-submit:hover { background:var(--accent); }
+  .form-note { font-size:0.75rem; color:#888; margin-top:1rem; text-align:center; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background:var(--dark); color:rgba(255,255,255,0.6);
+    padding:3rem 2rem 2rem; text-align:center;
+  }
+  .footer-logo { color:#fff; font-size:1.2rem; font-weight:700; margin-bottom:0.5rem; }
+  .footer-sub { font-size:0.75rem; color:var(--accent); letter-spacing:0.15em; margin-bottom:1.5rem; }
+  .footer-links { margin-bottom:1.5rem; }
+  .footer-links a {
+    color:rgba(255,255,255,0.5); text-decoration:none;
+    font-size:0.8rem; margin:0 1rem;
+    transition:color 0.2s;
+  }
+  .footer-links a:hover { color:#fff; }
+  .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.3); }
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:768px) {
+    nav { display:none; }
+    .hero h1 { font-size:1.8rem; }
+    .price-card.featured { transform:scale(1); }
+    .contact-wrap { padding:2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-main">IPS IT Solutions</span>
+      <span class="logo-sub">昌林メディカルジャパン 生成AI構築事業企画部</span>
+    </a>
+    <nav>
+      <a href="#services">サービス</a>
+      <a href="#flow">ご依頼の流れ</a>
+      <a href="#pricing">料金</a>
+      <a href="#contact">お問い合わせ</a>
+      <a href="#contact" class="btn-contact-header">無料相談</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">🚀 NEW — 生成AI構築事業企画部 始動</div>
+    <h1>あなたのビジネスに<br><em>AIの力</em>を。</h1>
+    <p>IPS IT Solutionsは、AIツール構築・業務オートメーション・<br>
+    ホームページ・APP制作まで、<br>
+    ワンストップでご提供するIT事業部門です。</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">✉️ 無料相談はこちら</a>
+      <a href="#services" class="btn-outline">サービスを見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <p class="section-label">Our Services</p>
+  <h2 class="section-title">提供サービス</h2>
+  <p class="section-desc">お客様のビジネス課題に合わせた4つのソリューションをご提供します。</p>
+  <div class="service-grid">
+    <div class="service-card">
+      <div class="service-icon">🤖</div>
+      <h3>AIツール構築</h3>
+      <p>ChatGPT・Claude・Geminiなどの生成AIを活用したカスタムツールを構築。業務効率化・自動応答・データ分析まで対応します。</p>
+      <span class="service-tag">Claude / Gemini / GPT-4</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">⚡</div>
+      <h3>OpenClawオートメーション</h3>
+      <p>OpenClawを活用した業務フロー自動化。メール・カレンダー・Notion・各種APIとの連携で、繰り返し作業をゼロに。</p>
+      <span class="service-tag">OpenClaw / Notion / API連携</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌐</div>
+      <h3>ホームページ制作</h3>
+      <p>集客・問い合わせ・発注に特化したコーポレートサイト・LP・ECサイトを制作。SEO対策・スマホ対応・LINE連携も標準装備。</p>
+      <span class="service-tag">HTML / Next.js / WordPress</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📱</div>
+      <h3>APP制作</h3>
+      <p>iOS・Android両対応のモバイルアプリを開発。業務管理・顧客対応・予約システムなど、ビジネスに直結するアプリを提供。</p>
+      <span class="service-tag">Flutter / React Native</span>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="flow" id="flow">
+  <p class="section-label">How It Works</p>
+  <h2 class="section-title">ご依頼の流れ</h2>
+  <p class="section-desc">お問い合わせから納品まで、シンプルな4ステップで対応します。</p>
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="flow-num">1</div>
+      <h4>無料相談</h4>
+      <p>フォーム・LINEからお気軽にご連絡ください。要件をヒアリングします。</p>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">2</div>
+      <h4>お見積もり</h4>
+      <p>ご要件に合わせた詳細なお見積もりと提案書を3営業日以内にご提出。</p>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">3</div>
+      <h4>制作・構築</h4>
+      <p>ご承認後、開発スタート。進捗はリアルタイムで共有します。</p>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">4</div>
+      <h4>納品・サポート</h4>
+      <p>検収・納品後も継続サポート。追加改修・運用保守も対応します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <p class="section-label">Pricing</p>
+  <h2 class="section-title">料金プラン</h2>
+  <p class="section-desc">まずはお気軽にご相談ください。要件に合わせたカスタム見積もりも承ります。</p>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <p class="price-plan">LIGHT</p>
+      <h3 class="price-name">ライトプラン</h3>
+      <div class="price-amount">¥50,000<span> ~</span></div>
+      <p class="price-from">LP・シンプルHP・基礎AI導入</p>
+      <ul class="price-features">
+        <li>ランディングページ制作</li>
+        <li>問い合わせフォーム設置</li>
+        <li>LINE公式アカウント連携</li>
+        <li>スマホ対応</li>
+        <li>1ヶ月サポート</li>
+      </ul>
+      <a href="#contact" class="btn-plan btn-plan-outline">相談する</a>
+    </div>
+    <div class="price-card featured">
+      <span class="price-badge">人気No.1</span>
+      <p class="price-plan">STANDARD</p>
+      <h3 class="price-name">スタンダードプラン</h3>
+      <div class="price-amount">¥150,000<span> ~</span></div>
+      <p class="price-from">コーポレートサイト・AI連携・業務自動化</p>
+      <ul class="price-features">
+        <li>コーポレートサイト制作</li>
+        <li>AIチャットボット導入</li>
+        <li>業務フロー自動化（3工程）</li>
+        <li>Notion連携</li>
+        <li>LINE・メール自動応答</li>
+        <li>3ヶ月サポート</li>
+      </ul>
+      <a href="#contact" class="btn-plan btn-plan-primary">相談する</a>
+    </div>
+    <div class="price-card">
+      <p class="price-plan">PRO</p>
+      <h3 class="price-name">プロプラン</h3>
+      <div class="price-amount">¥500,000<span> ~</span></div>
+      <p class="price-from">APP開発・フルオートメーション</p>
+      <ul class="price-features">
+        <li>モバイルアプリ開発（iOS/Android）</li>
+        <li>完全AI自動化システム</li>
+        <li>決済システム組み込み</li>
+        <li>管理画面・ダッシュボード</li>
+        <li>APIフル連携</li>
+        <li>6ヶ月サポート</li>
+      </ul>
+      <a href="#contact" class="btn-plan btn-plan-outline">相談する</a>
+    </div>
+  </div>
+  <p class="pricing-note">※ 表示価格は目安です。要件に応じたカスタム見積もりも承ります。<br>決済機能は近日実装予定です。</p>
+</section>
+
+<!-- LINE -->
+<section class="line-section">
+  <h2>💬 LINEで気軽に相談</h2>
+  <p>「まず話を聞いてみたい」という方はLINE公式アカウントへ。<br>
+  担当者が直接ご対応します。お見積もりも無料です。</p>
+  <a href="https://line.me/ti/p/@ips-it-solutions" class="btn-line" target="_blank" rel="noopener">
+    LINE で相談する（無料）
+  </a>
+  <p style="color:rgba(255,255,255,0.6);font-size:0.8rem;margin-top:1rem;">※ LINE公式アカウント設定後に有効になります</p>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="section-label">Contact</p>
+  <h2 class="section-title">お問い合わせ・発注</h2>
+  <p class="section-desc">ご質問・お見積もり・ご発注は下記フォームからお気軽にどうぞ。<br>3営業日以内にご返信します。</p>
+  <div class="contact-wrap">
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contactForm">
+      <div class="form-row">
+        <label>お名前 <span>*</span></label>
+        <input type="text" name="name" placeholder="山田 太郎" required>
+      </div>
+      <div class="form-row">
+        <label>会社名</label>
+        <input type="text" name="company" placeholder="株式会社○○">
+      </div>
+      <div class="form-row">
+        <label>メールアドレス <span>*</span></label>
+        <input type="email" name="email" placeholder="example@company.com" required>
+      </div>
+      <div class="form-row">
+        <label>電話番号</label>
+        <input type="tel" name="phone" placeholder="090-0000-0000">
+      </div>
+      <div class="form-row">
+        <label>ご希望のサービス <span>*</span></label>
+        <select name="service" required>
+          <option value="">選択してください</option>
+          <option value="ai">AIツール構築</option>
+          <option value="automation">OpenClawオートメーション</option>
+          <option value="website">ホームページ制作</option>
+          <option value="app">APP制作</option>
+          <option value="other">その他・複合</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label>ご予算（目安）</label>
+        <select name="budget">
+          <option value="">選択してください</option>
+          <option value="50k">〜5万円</option>
+          <option value="100k">5〜10万円</option>
+          <option value="300k">10〜30万円</option>
+          <option value="500k">30〜50万円</option>
+          <option value="500k+">50万円以上</option>
+          <option value="consult">要相談</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label>お問い合わせ内容 <span>*</span></label>
+        <textarea name="message" placeholder="ご要件・ご質問をご自由にお書きください。" required></textarea>
+      </div>
+      <button type="submit" class="form-submit">送信する →</button>
+      <p class="form-note">送信後、自動返信メールをお送りします。<br>3営業日以内に担当者よりご連絡いたします。</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">IPS IT Solutions</div>
+  <div class="footer-sub">昌林メディカルジャパン株式会社 生成AI構築事業企画部</div>
+  <div class="footer-links">
+    <a href="#services">サービス</a>
+    <a href="#pricing">料金</a>
+    <a href="#contact">お問い合わせ</a>
+    <a href="../index.html">昌林メディカル</a>
+  </div>
+  <div class="footer-copy">© 2026 IPS IT Solutions / Syorin Medical Japan Co., Ltd. All Rights Reserved.</div>
+</footer>
+
+<script>
+// スムーズスクロール
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// フォーム送信
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  const btn = this.querySelector('.form-submit');
+  btn.textContent = '送信中...';
+  btn.disabled = true;
+});
+</script>
+</body>
+</html>
