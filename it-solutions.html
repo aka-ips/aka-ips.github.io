@@ -1,281 +1,191 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" id="html-root">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IPS IT Solutions | 生成AI構築・オートメーション・ホームページ・APP制作</title>
-<meta name="description" content="IPS IT Solutionsは昌林メディカルジャパン生成AI構築事業企画部が提供するAIツール構築・OpenClawオートメーション・ホームページ制作・APP制作サービスです。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>IPS IT Solutions | AIツール構築・OpenClaw・HP・APP制作</title>
+<meta name="description" content="IPS IT Solutions - 生成AI構築・OpenClawオートメーション・ホームページ・APP制作。日本語・English・中文対応。">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Noto+Sans+SC:wght@300;400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --primary: #0a2463;
-    --accent: #3e92cc;
-    --gold: #d4af37;
-    --dark: #0d0d1a;
-    --light: #f8f9ff;
-    --text: #2d2d3a;
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Noto Sans JP','Inter',sans-serif; color:var(--text); background:#fff; }
+:root{--primary:#0a2463;--accent:#3e92cc;--gold:#d4af37;--dark:#0d0d1a;--light:#f8f9ff;--green:#06c755;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans JP','Inter',sans-serif;color:#2d2d3a;background:#fff;}
 
-  /* ===== HEADER ===== */
-  header {
-    position:fixed; top:0; width:100%; z-index:1000;
-    background:rgba(10,36,99,0.95); backdrop-filter:blur(10px);
-    padding:0 2rem;
-  }
-  .header-inner {
-    max-width:1200px; margin:0 auto;
-    display:flex; align-items:center; justify-content:space-between;
-    height:70px;
-  }
-  .logo { color:#fff; text-decoration:none; }
-  .logo-main { font-size:1.3rem; font-weight:700; letter-spacing:0.05em; }
-  .logo-sub { font-size:0.65rem; color:var(--accent); letter-spacing:0.15em; display:block; }
-  nav a {
-    color:rgba(255,255,255,0.85); text-decoration:none;
-    margin-left:2rem; font-size:0.85rem; font-weight:400;
-    transition:color 0.2s;
-  }
-  nav a:hover { color:var(--gold); }
-  .btn-contact-header {
-    background:var(--gold); color:var(--dark); padding:0.5rem 1.2rem;
-    border-radius:4px; font-size:0.85rem; font-weight:700;
-    text-decoration:none; margin-left:2rem; transition:opacity 0.2s;
-  }
-  .btn-contact-header:hover { opacity:0.85; }
+/* LANG SWITCHER */
+.lang-bar{background:var(--dark);padding:0.4rem 2rem;display:flex;justify-content:flex-end;gap:0.5rem;align-items:center;}
+.lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.7);padding:0.25rem 0.7rem;border-radius:4px;cursor:pointer;font-size:0.75rem;transition:all 0.2s;}
+.lang-btn.active,.lang-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
 
-  /* ===== HERO ===== */
-  .hero {
-    min-height:100vh; background:linear-gradient(135deg, var(--dark) 0%, var(--primary) 60%, #1a4a8a 100%);
-    display:flex; align-items:center; position:relative; overflow:hidden;
-  }
-  .hero::before {
-    content:''; position:absolute; width:600px; height:600px;
-    background:radial-gradient(circle, rgba(62,146,204,0.15) 0%, transparent 70%);
-    top:-100px; right:-100px;
-  }
-  .hero::after {
-    content:''; position:absolute; width:400px; height:400px;
-    background:radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%);
-    bottom:-50px; left:10%;
-  }
-  .hero-content {
-    max-width:1200px; margin:0 auto; padding:8rem 2rem 4rem;
-    position:relative; z-index:1;
-  }
-  .hero-badge {
-    display:inline-block; background:rgba(212,175,55,0.15);
-    border:1px solid var(--gold); color:var(--gold);
-    padding:0.4rem 1rem; border-radius:20px; font-size:0.75rem;
-    letter-spacing:0.15em; margin-bottom:1.5rem;
-  }
-  .hero h1 {
-    font-size:clamp(2rem, 5vw, 3.5rem); color:#fff;
-    font-weight:700; line-height:1.2; margin-bottom:1.5rem;
-  }
-  .hero h1 em { color:var(--accent); font-style:normal; }
-  .hero p {
-    font-size:1.1rem; color:rgba(255,255,255,0.75);
-    max-width:600px; line-height:1.9; margin-bottom:2.5rem;
-  }
-  .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
-  .btn-primary {
-    background:var(--gold); color:var(--dark); padding:0.9rem 2.5rem;
-    border-radius:6px; font-weight:700; text-decoration:none;
-    font-size:1rem; transition:transform 0.2s, opacity 0.2s;
-    display:inline-block;
-  }
-  .btn-primary:hover { transform:translateY(-2px); opacity:0.9; }
-  .btn-outline {
-    border:2px solid rgba(255,255,255,0.4); color:#fff;
-    padding:0.9rem 2.5rem; border-radius:6px; font-weight:400;
-    text-decoration:none; font-size:1rem; transition:border-color 0.2s;
-    display:inline-block;
-  }
-  .btn-outline:hover { border-color:#fff; }
+/* HEADER */
+header{position:sticky;top:0;width:100%;z-index:1000;background:rgba(10,36,99,0.97);backdrop-filter:blur(10px);}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:65px;padding:0 2rem;}
+.logo{color:#fff;text-decoration:none;}
+.logo-main{font-size:1.2rem;font-weight:700;}
+.logo-sub{font-size:0.6rem;color:var(--accent);letter-spacing:0.1em;display:block;}
+nav{display:flex;align-items:center;gap:0;}
+nav a{color:rgba(255,255,255,0.8);text-decoration:none;margin-left:1.5rem;font-size:0.82rem;transition:color 0.2s;}
+nav a:hover{color:var(--gold);}
+.btn-nav{background:var(--gold);color:var(--dark)!important;padding:0.45rem 1.1rem;border-radius:4px;font-weight:700;margin-left:1.5rem;}
 
-  /* ===== SERVICES ===== */
-  .services { padding:6rem 2rem; background:var(--light); }
-  .section-label {
-    text-align:center; font-size:0.75rem; letter-spacing:0.3em;
-    color:var(--accent); text-transform:uppercase; margin-bottom:0.8rem;
-  }
-  .section-title {
-    text-align:center; font-size:clamp(1.5rem, 3vw, 2.2rem);
-    font-weight:700; color:var(--primary); margin-bottom:1rem;
-  }
-  .section-desc {
-    text-align:center; color:#666; max-width:600px;
-    margin:0 auto 3.5rem; line-height:1.8;
-  }
-  .service-grid {
-    display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-    gap:1.5rem; max-width:1200px; margin:0 auto;
-  }
-  .service-card {
-    background:#fff; border-radius:12px; padding:2rem;
-    box-shadow:0 4px 20px rgba(0,0,0,0.06);
-    transition:transform 0.3s, box-shadow 0.3s;
-    border-top:3px solid var(--accent);
-  }
-  .service-card:hover { transform:translateY(-6px); box-shadow:0 12px 40px rgba(0,0,0,0.12); }
-  .service-icon { font-size:2.5rem; margin-bottom:1rem; }
-  .service-card h3 { font-size:1.1rem; font-weight:700; color:var(--primary); margin-bottom:0.8rem; }
-  .service-card p { font-size:0.9rem; color:#666; line-height:1.8; }
-  .service-tag {
-    display:inline-block; background:rgba(62,146,204,0.1); color:var(--accent);
-    font-size:0.7rem; padding:0.2rem 0.6rem; border-radius:10px;
-    margin-top:1rem; letter-spacing:0.05em;
-  }
+/* HERO */
+.hero{min-height:92vh;background:linear-gradient(135deg,var(--dark) 0%,var(--primary) 60%,#1a4a8a 100%);display:flex;align-items:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(62,146,204,0.12) 0%,transparent 70%);top:-80px;right:-80px;}
+.hero-content{max-width:1200px;margin:0 auto;padding:5rem 2rem 4rem;position:relative;z-index:1;}
+.hero-badge{display:inline-block;background:rgba(212,175,55,0.15);border:1px solid var(--gold);color:var(--gold);padding:0.35rem 1rem;border-radius:20px;font-size:0.72rem;letter-spacing:0.15em;margin-bottom:1.5rem;}
+.hero h1{font-size:clamp(1.8rem,4.5vw,3.2rem);color:#fff;font-weight:700;line-height:1.25;margin-bottom:1.2rem;}
+.hero h1 em{color:var(--accent);font-style:normal;}
+.hero p{font-size:1rem;color:rgba(255,255,255,0.75);max-width:580px;line-height:1.9;margin-bottom:2.5rem;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-primary{background:var(--gold);color:var(--dark);padding:0.85rem 2.2rem;border-radius:6px;font-weight:700;text-decoration:none;font-size:0.95rem;transition:transform 0.2s,opacity 0.2s;display:inline-block;}
+.btn-primary:hover{transform:translateY(-2px);opacity:0.9;}
+.btn-outline{border:2px solid rgba(255,255,255,0.4);color:#fff;padding:0.85rem 2.2rem;border-radius:6px;text-decoration:none;font-size:0.95rem;transition:border-color 0.2s;display:inline-block;}
+.btn-outline:hover{border-color:#fff;}
 
-  /* ===== FLOW ===== */
-  .flow { padding:6rem 2rem; background:#fff; }
-  .flow-steps {
-    display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
-    gap:2rem; max-width:1000px; margin:0 auto; position:relative;
-  }
-  .flow-step { text-align:center; }
-  .flow-num {
-    width:56px; height:56px; border-radius:50%;
-    background:var(--primary); color:#fff;
-    display:flex; align-items:center; justify-content:center;
-    font-size:1.3rem; font-weight:700; margin:0 auto 1rem;
-  }
-  .flow-step h4 { font-size:1rem; font-weight:700; color:var(--primary); margin-bottom:0.5rem; }
-  .flow-step p { font-size:0.85rem; color:#666; line-height:1.7; }
+/* SECTIONS */
+section{padding:5rem 2rem;}
+.section-label{text-align:center;font-size:0.72rem;letter-spacing:0.3em;color:var(--accent);text-transform:uppercase;margin-bottom:0.6rem;}
+.section-title{text-align:center;font-size:clamp(1.4rem,2.8vw,2rem);font-weight:700;color:var(--primary);margin-bottom:0.8rem;}
+.section-desc{text-align:center;color:#666;max-width:600px;margin:0 auto 3rem;line-height:1.8;font-size:0.95rem;}
 
-  /* ===== PRICING ===== */
-  .pricing { padding:6rem 2rem; background:var(--light); }
-  .pricing-grid {
-    display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-    gap:1.5rem; max-width:1000px; margin:0 auto;
-  }
-  .price-card {
-    background:#fff; border-radius:12px; padding:2.5rem;
-    box-shadow:0 4px 20px rgba(0,0,0,0.06);
-    border:2px solid transparent; transition:border 0.3s;
-  }
-  .price-card.featured {
-    border:2px solid var(--accent);
-    position:relative; transform:scale(1.03);
-  }
-  .price-badge {
-    position:absolute; top:-12px; left:50%; transform:translateX(-50%);
-    background:var(--accent); color:#fff; font-size:0.7rem;
-    padding:0.3rem 1rem; border-radius:10px; letter-spacing:0.1em;
-  }
-  .price-plan { font-size:0.8rem; color:var(--accent); letter-spacing:0.2em; margin-bottom:0.5rem; }
-  .price-name { font-size:1.3rem; font-weight:700; color:var(--primary); margin-bottom:1rem; }
-  .price-amount { font-size:2rem; font-weight:700; color:var(--primary); }
-  .price-amount span { font-size:0.9rem; font-weight:400; color:#888; }
-  .price-from { font-size:0.75rem; color:#888; margin-bottom:1.5rem; }
-  .price-features { list-style:none; margin-bottom:2rem; }
-  .price-features li {
-    font-size:0.85rem; color:#555; padding:0.5rem 0;
-    border-bottom:1px solid #f0f0f0;
-    display:flex; align-items:center; gap:0.5rem;
-  }
-  .price-features li::before { content:'✓'; color:var(--accent); font-weight:700; }
-  .btn-plan {
-    display:block; text-align:center; padding:0.8rem;
-    border-radius:6px; font-weight:700; font-size:0.9rem;
-    text-decoration:none; transition:opacity 0.2s;
-  }
-  .btn-plan-primary { background:var(--primary); color:#fff; }
-  .btn-plan-outline { border:2px solid var(--primary); color:var(--primary); }
-  .btn-plan:hover { opacity:0.85; }
-  .pricing-note {
-    text-align:center; color:#888; font-size:0.8rem;
-    margin-top:2rem;
-  }
+/* SERVICES */
+.services{background:var(--light);}
+.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;max-width:1200px;margin:0 auto;}
+.service-card{background:#fff;border-radius:12px;padding:1.8rem;box-shadow:0 4px 20px rgba(0,0,0,0.06);transition:transform 0.3s,box-shadow 0.3s;border-top:3px solid var(--accent);}
+.service-card:hover{transform:translateY(-5px);box-shadow:0 12px 35px rgba(0,0,0,0.11);}
+.service-icon{font-size:2.2rem;margin-bottom:0.8rem;}
+.service-card h3{font-size:1rem;font-weight:700;color:var(--primary);margin-bottom:0.6rem;}
+.service-card p{font-size:0.85rem;color:#666;line-height:1.8;}
+.tag-list{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem;}
+.tag{background:rgba(62,146,204,0.1);color:var(--accent);font-size:0.68rem;padding:0.2rem 0.55rem;border-radius:8px;}
 
-  /* ===== LINE SECTION ===== */
-  .line-section {
-    background:linear-gradient(135deg, #06c755 0%, #00a040 100%);
-    padding:4rem 2rem; text-align:center;
-  }
-  .line-section h2 { font-size:1.8rem; color:#fff; font-weight:700; margin-bottom:1rem; }
-  .line-section p { color:rgba(255,255,255,0.85); margin-bottom:2rem; font-size:1rem; line-height:1.8; }
-  .btn-line {
-    display:inline-block; background:#fff; color:#06c755;
-    padding:1rem 2.5rem; border-radius:50px; font-weight:700;
-    font-size:1rem; text-decoration:none; transition:transform 0.2s;
-  }
-  .btn-line:hover { transform:translateY(-2px); }
+/* OPENCLAW SECTION */
+.openclaw-section{background:#fff;}
+.plan-toggle{display:flex;justify-content:center;gap:1rem;margin-bottom:3rem;flex-wrap:wrap;}
+.plan-tab{padding:0.7rem 2rem;border-radius:50px;border:2px solid var(--primary);color:var(--primary);font-weight:700;cursor:pointer;font-size:0.9rem;transition:all 0.2s;background:transparent;}
+.plan-tab.active,.plan-tab:hover{background:var(--primary);color:#fff;}
+.openclaw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;max-width:1100px;margin:0 auto;}
+.oc-card{border-radius:14px;padding:2rem;border:2px solid #e8e8f0;transition:border 0.3s;}
+.oc-card.cloud{border-color:var(--accent);background:linear-gradient(135deg,#f0f8ff 0%,#fff 100%);}
+.oc-card.local{border-color:var(--gold);background:linear-gradient(135deg,#fffdf0 0%,#fff 100%);}
+.oc-badge{display:inline-block;padding:0.3rem 0.8rem;border-radius:20px;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;margin-bottom:1rem;}
+.oc-badge.cloud{background:var(--accent);color:#fff;}
+.oc-badge.local{background:var(--gold);color:var(--dark);}
+.oc-card h3{font-size:1.15rem;font-weight:700;color:var(--primary);margin-bottom:0.5rem;}
+.oc-card .oc-desc{font-size:0.85rem;color:#666;line-height:1.8;margin-bottom:1.2rem;}
+.oc-tools{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1.5rem;}
+.oc-tool{background:var(--dark);color:#fff;font-size:0.72rem;padding:0.3rem 0.7rem;border-radius:6px;}
+.oc-price-box{background:rgba(0,0,0,0.04);border-radius:10px;padding:1.2rem;margin-bottom:1.2rem;}
+.oc-price-row{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0;border-bottom:1px solid rgba(0,0,0,0.06);}
+.oc-price-row:last-child{border:none;}
+.oc-price-label{font-size:0.82rem;color:#555;}
+.oc-price-val{font-size:1rem;font-weight:700;color:var(--primary);}
+.oc-price-note{font-size:0.72rem;color:#888;margin-top:0.8rem;}
+.oc-features{list-style:none;margin-bottom:1.5rem;}
+.oc-features li{font-size:0.83rem;color:#555;padding:0.4rem 0;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:0.5rem;}
+.oc-features li::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0;}
+.btn-oc{display:block;text-align:center;padding:0.75rem;border-radius:8px;font-weight:700;font-size:0.88rem;text-decoration:none;transition:opacity 0.2s;}
+.btn-oc.cloud{background:var(--accent);color:#fff;}
+.btn-oc.local{background:var(--gold);color:var(--dark);}
+.btn-oc:hover{opacity:0.85;}
 
-  /* ===== CONTACT ===== */
-  .contact { padding:6rem 2rem; background:#fff; }
-  .contact-wrap {
-    max-width:700px; margin:0 auto;
-    background:var(--light); border-radius:16px; padding:3rem;
-    box-shadow:0 4px 30px rgba(0,0,0,0.08);
-  }
-  .form-row { margin-bottom:1.5rem; }
-  .form-row label {
-    display:block; font-size:0.85rem; font-weight:700;
-    color:var(--primary); margin-bottom:0.5rem;
-  }
-  .form-row label span { color:#e74c3c; margin-left:0.3rem; }
-  .form-row input, .form-row select, .form-row textarea {
-    width:100%; padding:0.9rem 1rem; border:2px solid #e8e8f0;
-    border-radius:8px; font-size:0.95rem; font-family:inherit;
-    transition:border-color 0.2s; background:#fff;
-  }
-  .form-row input:focus, .form-row select:focus, .form-row textarea:focus {
-    outline:none; border-color:var(--accent);
-  }
-  .form-row textarea { height:140px; resize:vertical; }
-  .form-submit {
-    width:100%; padding:1.1rem; background:var(--primary);
-    color:#fff; border:none; border-radius:8px;
-    font-size:1rem; font-weight:700; cursor:pointer;
-    transition:background 0.2s;
-  }
-  .form-submit:hover { background:var(--accent); }
-  .form-note { font-size:0.75rem; color:#888; margin-top:1rem; text-align:center; }
+/* HP CATEGORY */
+.hp-section{background:var(--light);}
+.hp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;max-width:1100px;margin:0 auto;}
+.hp-card{background:#fff;border-radius:10px;padding:1.5rem;box-shadow:0 2px 12px rgba(0,0,0,0.06);border-left:4px solid var(--accent);}
+.hp-card h4{font-size:0.95rem;font-weight:700;color:var(--primary);margin-bottom:0.5rem;}
+.hp-card p{font-size:0.82rem;color:#666;line-height:1.7;}
+.hp-price{font-size:0.82rem;font-weight:700;color:var(--accent);margin-top:0.8rem;}
 
-  /* ===== FOOTER ===== */
-  footer {
-    background:var(--dark); color:rgba(255,255,255,0.6);
-    padding:3rem 2rem 2rem; text-align:center;
-  }
-  .footer-logo { color:#fff; font-size:1.2rem; font-weight:700; margin-bottom:0.5rem; }
-  .footer-sub { font-size:0.75rem; color:var(--accent); letter-spacing:0.15em; margin-bottom:1.5rem; }
-  .footer-links { margin-bottom:1.5rem; }
-  .footer-links a {
-    color:rgba(255,255,255,0.5); text-decoration:none;
-    font-size:0.8rem; margin:0 1rem;
-    transition:color 0.2s;
-  }
-  .footer-links a:hover { color:#fff; }
-  .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.3); }
+/* FLOW */
+.flow{background:#fff;}
+.flow-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem;max-width:1000px;margin:0 auto;}
+.flow-step{text-align:center;}
+.flow-num{width:52px;height:52px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:700;margin:0 auto 0.8rem;}
+.flow-step h4{font-size:0.95rem;font-weight:700;color:var(--primary);margin-bottom:0.4rem;}
+.flow-step p{font-size:0.82rem;color:#666;line-height:1.7;}
 
-  /* ===== RESPONSIVE ===== */
-  @media(max-width:768px) {
-    nav { display:none; }
-    .hero h1 { font-size:1.8rem; }
-    .price-card.featured { transform:scale(1); }
-    .contact-wrap { padding:2rem 1.5rem; }
-  }
+/* PRICING */
+.pricing{background:var(--light);}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;max-width:1000px;margin:0 auto;}
+.price-card{background:#fff;border-radius:12px;padding:2.2rem;box-shadow:0 4px 20px rgba(0,0,0,0.06);border:2px solid transparent;transition:border 0.3s;}
+.price-card.featured{border:2px solid var(--accent);position:relative;}
+.price-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:0.68rem;padding:0.25rem 0.9rem;border-radius:10px;letter-spacing:0.1em;white-space:nowrap;}
+.price-plan{font-size:0.72rem;color:var(--accent);letter-spacing:0.2em;margin-bottom:0.4rem;}
+.price-name{font-size:1.2rem;font-weight:700;color:var(--primary);margin-bottom:0.8rem;}
+.price-amount{font-size:1.8rem;font-weight:700;color:var(--primary);}
+.price-amount span{font-size:0.85rem;font-weight:400;color:#888;}
+.price-from{font-size:0.72rem;color:#888;margin-bottom:1.2rem;}
+.price-features{list-style:none;margin-bottom:1.5rem;}
+.price-features li{font-size:0.82rem;color:#555;padding:0.45rem 0;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:0.5rem;}
+.price-features li::before{content:'✓';color:var(--accent);font-weight:700;}
+.btn-plan{display:block;text-align:center;padding:0.75rem;border-radius:6px;font-weight:700;font-size:0.88rem;text-decoration:none;transition:opacity 0.2s;}
+.btn-plan-primary{background:var(--primary);color:#fff;}
+.btn-plan-outline{border:2px solid var(--primary);color:var(--primary);}
+.btn-plan:hover{opacity:0.85;}
+.pricing-note{text-align:center;color:#888;font-size:0.78rem;margin-top:1.5rem;line-height:1.8;}
+
+/* LINE */
+.line-section{background:linear-gradient(135deg,#06c755 0%,#00a040 100%);padding:4rem 2rem;text-align:center;}
+.line-section h2{font-size:1.7rem;color:#fff;font-weight:700;margin-bottom:0.8rem;}
+.line-section p{color:rgba(255,255,255,0.85);margin-bottom:1.8rem;font-size:0.95rem;line-height:1.8;}
+.btn-line{display:inline-block;background:#fff;color:#06c755;padding:0.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:transform 0.2s;}
+.btn-line:hover{transform:translateY(-2px);}
+
+/* CONTACT */
+.contact{background:#fff;}
+.contact-wrap{max-width:680px;margin:0 auto;background:var(--light);border-radius:14px;padding:2.5rem;box-shadow:0 4px 30px rgba(0,0,0,0.07);}
+.form-row{margin-bottom:1.3rem;}
+.form-row label{display:block;font-size:0.82rem;font-weight:700;color:var(--primary);margin-bottom:0.4rem;}
+.form-row label span{color:#e74c3c;margin-left:0.3rem;}
+.form-row input,.form-row select,.form-row textarea{width:100%;padding:0.8rem 1rem;border:2px solid #e8e8f0;border-radius:8px;font-size:0.9rem;font-family:inherit;transition:border-color 0.2s;background:#fff;}
+.form-row input:focus,.form-row select:focus,.form-row textarea:focus{outline:none;border-color:var(--accent);}
+.form-row textarea{height:130px;resize:vertical;}
+.form-submit{width:100%;padding:1rem;background:var(--primary);color:#fff;border:none;border-radius:8px;font-size:0.95rem;font-weight:700;cursor:pointer;transition:background 0.2s;}
+.form-submit:hover{background:var(--accent);}
+.form-note{font-size:0.72rem;color:#888;margin-top:0.8rem;text-align:center;line-height:1.7;}
+
+/* FOOTER */
+footer{background:var(--dark);color:rgba(255,255,255,0.5);padding:2.5rem 2rem 1.5rem;text-align:center;}
+.footer-logo{color:#fff;font-size:1.1rem;font-weight:700;margin-bottom:0.3rem;}
+.footer-sub{font-size:0.65rem;color:var(--accent);letter-spacing:0.12em;margin-bottom:1.2rem;}
+.footer-links{margin-bottom:1.2rem;}
+.footer-links a{color:rgba(255,255,255,0.45);text-decoration:none;font-size:0.78rem;margin:0 0.8rem;transition:color 0.2s;}
+.footer-links a:hover{color:#fff;}
+.footer-copy{font-size:0.7rem;color:rgba(255,255,255,0.25);}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav a:not(.btn-nav){display:none;}
+  .header-inner{padding:0 1rem;}
+  .hero-content{padding:4rem 1.2rem 3rem;}
+  section{padding:3.5rem 1.2rem;}
+  .contact-wrap{padding:1.8rem 1.2rem;}
+  .openclaw-grid{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
+
+<!-- LANG BAR -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('ja')">🇯🇵 日本語</button>
+  <button class="lang-btn" onclick="setLang('en')">🇺🇸 English</button>
+  <button class="lang-btn" onclick="setLang('zh')">🇨🇳 中文</button>
+</div>
 
 <!-- HEADER -->
 <header>
   <div class="header-inner">
     <a href="#" class="logo">
       <span class="logo-main">IPS IT Solutions</span>
-      <span class="logo-sub">昌林メディカルジャパン 生成AI構築事業企画部</span>
+      <span class="logo-sub" data-ja="昌林メディカルジャパン 生成AI構築事業企画部" data-en="Syorin Medical Japan – AI Business Division" data-zh="昌林医疗日本 生成AI事业部">昌林メディカルジャパン 生成AI構築事業企画部</span>
     </a>
     <nav>
-      <a href="#services">サービス</a>
-      <a href="#flow">ご依頼の流れ</a>
-      <a href="#pricing">料金</a>
-      <a href="#contact">お問い合わせ</a>
-      <a href="#contact" class="btn-contact-header">無料相談</a>
+      <a href="#services" data-ja="サービス" data-en="Services" data-zh="服务">サービス</a>
+      <a href="#openclaw" data-ja="OpenClaw" data-en="OpenClaw" data-zh="OpenClaw">OpenClaw</a>
+      <a href="#pricing" data-ja="料金" data-en="Pricing" data-zh="价格">料金</a>
+      <a href="#contact" data-ja="お問い合わせ" data-en="Contact" data-zh="联系我们">お問い合わせ</a>
+      <a href="#contact" class="btn-nav" data-ja="無料相談" data-en="Free Consult" data-zh="免费咨询">無料相談</a>
     </nav>
   </div>
 </header>
@@ -283,198 +193,286 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-badge">🚀 NEW — 生成AI構築事業企画部 始動</div>
-    <h1>あなたのビジネスに<br><em>AIの力</em>を。</h1>
-    <p>IPS IT Solutionsは、AIツール構築・業務オートメーション・<br>
-    ホームページ・APP制作まで、<br>
-    ワンストップでご提供するIT事業部門です。</p>
+    <div class="hero-badge" data-ja="🚀 生成AI構築事業企画部 始動" data-en="🚀 AI Business Division – Now Open" data-zh="🚀 生成AI事业部 正式启动">🚀 生成AI構築事業企画部 始動</div>
+    <h1 data-ja="あなたのビジネスに<br><em>AIの力</em>を。" data-en="Powering Your Business<br>with <em>AI</em>." data-zh="为您的业务注入<br><em>AI 力量</em>。">あなたのビジネスに<br><em>AIの力</em>を。</h1>
+    <p data-ja="AIツール構築・OpenClawオートメーション・<br>ホームページ・APP制作まで、ワンストップで提供します。" data-en="From AI tool development and OpenClaw automation<br>to website and app creation — all in one place." data-zh="AI工具构建、OpenClaw自动化、<br>网站及APP开发，一站式服务。">AIツール構築・OpenClawオートメーション・<br>ホームページ・APP制作まで、ワンストップで提供します。</p>
     <div class="hero-btns">
-      <a href="#contact" class="btn-primary">✉️ 無料相談はこちら</a>
-      <a href="#services" class="btn-outline">サービスを見る</a>
+      <a href="#contact" class="btn-primary" data-ja="✉️ 無料相談はこちら" data-en="✉️ Free Consultation" data-zh="✉️ 免费咨询">✉️ 無料相談はこちら</a>
+      <a href="#services" class="btn-outline" data-ja="サービスを見る" data-en="View Services" data-zh="查看服务">サービスを見る</a>
     </div>
   </div>
 </section>
 
 <!-- SERVICES -->
 <section class="services" id="services">
-  <p class="section-label">Our Services</p>
-  <h2 class="section-title">提供サービス</h2>
-  <p class="section-desc">お客様のビジネス課題に合わせた4つのソリューションをご提供します。</p>
+  <p class="section-label" data-ja="Our Services" data-en="Our Services" data-zh="我们的服务">Our Services</p>
+  <h2 class="section-title" data-ja="提供サービス" data-en="What We Offer" data-zh="服务项目">提供サービス</h2>
+  <p class="section-desc" data-ja="お客様のビジネス課題に合わせた4つのソリューション。" data-en="4 solutions tailored to your business needs." data-zh="针对您的业务需求，提供4种解决方案。">お客様のビジネス課題に合わせた4つのソリューション。</p>
   <div class="service-grid">
     <div class="service-card">
       <div class="service-icon">🤖</div>
-      <h3>AIツール構築</h3>
-      <p>ChatGPT・Claude・Geminiなどの生成AIを活用したカスタムツールを構築。業務効率化・自動応答・データ分析まで対応します。</p>
-      <span class="service-tag">Claude / Gemini / GPT-4</span>
+      <h3 data-ja="AIツール構築" data-en="AI Tool Development" data-zh="AI工具构建">AIツール構築</h3>
+      <p data-ja="Claude・Gemini等の生成AIを活用したカスタムツール構築。業務効率化・自動応答・データ分析に対応。" data-en="Custom AI tools using Claude, Gemini & more. Automate workflows, responses, and data analysis." data-zh="利用Claude、Gemini等生成AI构建定制工具，实现业务自动化和数据分析。">Claude・Gemini等の生成AIを活用したカスタムツール構築。業務効率化・自動応答・データ分析に対応。</p>
+      <div class="tag-list"><span class="tag">Claude</span><span class="tag">Gemini</span><span class="tag">GPT-4</span></div>
     </div>
     <div class="service-card">
       <div class="service-icon">⚡</div>
-      <h3>OpenClawオートメーション</h3>
-      <p>OpenClawを活用した業務フロー自動化。メール・カレンダー・Notion・各種APIとの連携で、繰り返し作業をゼロに。</p>
-      <span class="service-tag">OpenClaw / Notion / API連携</span>
+      <h3 data-ja="OpenClawオートメーション" data-en="OpenClaw Automation" data-zh="OpenClaw自动化">OpenClawオートメーション</h3>
+      <p data-ja="OpenClawで業務フローを自動化。メール・カレンダー・Notion・各種APIと連携し、繰り返し作業をゼロに。" data-en="Automate workflows with OpenClaw. Integrate email, calendar, Notion & APIs to eliminate repetitive tasks." data-zh="用OpenClaw自动化工作流程，集成邮件、日历、Notion及各类API。">OpenClawで業務フローを自動化。メール・カレンダー・Notion・各種APIと連携し、繰り返し作業をゼロに。</p>
+      <div class="tag-list"><span class="tag">OpenClaw</span><span class="tag">Notion</span><span class="tag">API</span></div>
     </div>
     <div class="service-card">
       <div class="service-icon">🌐</div>
-      <h3>ホームページ制作</h3>
-      <p>集客・問い合わせ・発注に特化したコーポレートサイト・LP・ECサイトを制作。SEO対策・スマホ対応・LINE連携も標準装備。</p>
-      <span class="service-tag">HTML / Next.js / WordPress</span>
+      <h3 data-ja="ホームページ制作" data-en="Website Development" data-zh="网站制作">ホームページ制作</h3>
+      <p data-ja="コーポレートサイト・LP・ECサイト・多言語対応HP。SEO・スマホ対応・LINE連携・問い合わせ自動化まで。" data-en="Corporate sites, LPs, EC stores, multilingual. SEO, mobile, LINE integration & inquiry automation." data-zh="企业网站、落地页、电商网站、多语言支持，含SEO优化和LINE集成。">コーポレートサイト・LP・ECサイト・多言語対応HP。SEO・スマホ対応・LINE連携・問い合わせ自動化まで。</p>
+      <div class="tag-list"><span class="tag">HTML/CSS</span><span class="tag">Next.js</span><span class="tag">WordPress</span></div>
     </div>
     <div class="service-card">
       <div class="service-icon">📱</div>
-      <h3>APP制作</h3>
-      <p>iOS・Android両対応のモバイルアプリを開発。業務管理・顧客対応・予約システムなど、ビジネスに直結するアプリを提供。</p>
-      <span class="service-tag">Flutter / React Native</span>
+      <h3 data-ja="APP制作" data-en="App Development" data-zh="APP开发">APP制作</h3>
+      <p data-ja="iOS・Android両対応アプリ。業務管理・顧客対応・予約・決済システムなど、ビジネスに直結するアプリを提供。" data-en="iOS & Android apps for business management, customer service, reservations & payments." data-zh="iOS和Android双平台应用，支持业务管理、客服、预约和支付功能。">iOS・Android両対応アプリ。業務管理・顧客対応・予約・決済システムなど、ビジネスに直結するアプリを提供。</p>
+      <div class="tag-list"><span class="tag">Flutter</span><span class="tag">React Native</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- HP CATEGORY -->
+<section class="hp-section" id="hp">
+  <p class="section-label" data-ja="Website Categories" data-en="Website Categories" data-zh="网站类型">Website Categories</p>
+  <h2 class="section-title" data-ja="ホームページ制作カテゴリ" data-en="Website Types" data-zh="网站制作类型">ホームページ制作カテゴリ</h2>
+  <p class="section-desc" data-ja="目的・業種に合わせたサイト制作。全カテゴリ日英中3言語・PC/スマホ対応。" data-en="Sites tailored to your purpose. All categories support JP/EN/ZH and mobile." data-zh="根据目的和行业定制网站，全类别支持日英中三语言和手机端。">目的・業種に合わせたサイト制作。全カテゴリ日英中3言語・PC/スマホ対応。</p>
+  <div class="hp-grid">
+    <div class="hp-card">
+      <h4 data-ja="🏢 コーポレートサイト" data-en="🏢 Corporate Website" data-zh="🏢 企业官网">🏢 コーポレートサイト</h4>
+      <p data-ja="会社・事業紹介、採用、お問い合わせ対応の基本HP" data-en="Company intro, recruitment, contact form" data-zh="公司介绍、招聘、联系表单">会社・事業紹介、採用、お問い合わせ対応の基本HP</p>
+      <div class="hp-price" data-ja="¥50,000～（税抜）" data-en="¥50,000～ (ex.tax)" data-zh="¥50,000～（不含税）">¥50,000～（税抜）</div>
+    </div>
+    <div class="hp-card">
+      <h4 data-ja="📣 ランディングページ" data-en="📣 Landing Page" data-zh="📣 落地页">📣 ランディングページ</h4>
+      <p data-ja="サービス・商品の集客・申込に特化した1ページ完結型" data-en="Single-page focused on lead generation & sign-ups" data-zh="专注获客和注册转化的单页面">サービス・商品の集客・申込に特化した1ページ完結型</p>
+      <div class="hp-price" data-ja="¥30,000～（税抜）" data-en="¥30,000～ (ex.tax)" data-zh="¥30,000～（不含税）">¥30,000～（税抜）</div>
+    </div>
+    <div class="hp-card">
+      <h4 data-ja="🛒 ECサイト" data-en="🛒 EC / Online Store" data-zh="🛒 电商网站">🛒 ECサイト</h4>
+      <p data-ja="商品販売・決済・在庫管理対応のオンラインショップ" data-en="Online shop with payment, inventory management" data-zh="带支付和库存管理的在线商店">商品販売・決済・在庫管理対応のオンラインショップ</p>
+      <div class="hp-price" data-ja="¥100,000～（税抜）" data-en="¥100,000～ (ex.tax)" data-zh="¥100,000～（不含税）">¥100,000～（税抜）</div>
+    </div>
+    <div class="hp-card">
+      <h4 data-ja="🌏 多言語HP" data-en="🌏 Multilingual Site" data-zh="🌏 多语言网站">🌏 多言語HP</h4>
+      <p data-ja="日本語・英語・中国語対応の国際ビジネス向けHP" data-en="JP/EN/ZH multilingual site for global business" data-zh="面向国际业务的日英中三语言网站">日本語・英語・中国語対応の国際ビジネス向けHP</p>
+      <div class="hp-price" data-ja="¥80,000～（税抜）" data-en="¥80,000～ (ex.tax)" data-zh="¥80,000～（不含税）">¥80,000～（税抜）</div>
+    </div>
+    <div class="hp-card">
+      <h4 data-ja="🤖 AI搭載HP" data-en="🤖 AI-Powered Site" data-zh="🤖 AI集成网站">🤖 AI搭載HP</h4>
+      <p data-ja="AIチャット・自動問い合わせ対応を組み込んだ次世代HP" data-en="Next-gen site with AI chat & auto inquiry handling" data-zh="集成AI聊天和自动询盘处理的新一代网站">AIチャット・自動問い合わせ対応を組み込んだ次世代HP</p>
+      <div class="hp-price" data-ja="¥150,000～（税抜）" data-en="¥150,000～ (ex.tax)" data-zh="¥150,000～（不含税）">¥150,000～（税抜）</div>
+    </div>
+    <div class="hp-card">
+      <h4 data-ja="📅 予約・管理システム" data-en="📅 Booking System" data-zh="📅 预约管理系统">📅 予約・管理システム</h4>
+      <p data-ja="オンライン予約・会員管理・ダッシュボード付きシステム" data-en="Online booking, member management & dashboard" data-zh="在线预约、会员管理和控制台系统">オンライン予約・会員管理・ダッシュボード付きシステム</p>
+      <div class="hp-price" data-ja="¥200,000～（税抜）" data-en="¥200,000～ (ex.tax)" data-zh="¥200,000～（不含税）">¥200,000～（税抜）</div>
+    </div>
+  </div>
+</section>
+
+<!-- OPENCLAW -->
+<section class="openclaw-section" id="openclaw">
+  <p class="section-label">OpenClaw Solutions</p>
+  <h2 class="section-title" data-ja="OpenClawツール構築プラン" data-en="OpenClaw Build Plans" data-zh="OpenClaw构建方案">OpenClawツール構築プラン</h2>
+  <p class="section-desc" data-ja="クラウドAI型とローカルAI型の2パターンから選択。<br>弊社管理プランとMac mini構築プランをご用意。" data-en="Choose between Cloud AI or Local AI. Available as managed hosting or Mac mini setup." data-zh="可选云端AI版或本地AI版，提供托管服务和Mac mini安装两种方案。">クラウドAI型とローカルAI型の2パターンから選択。<br>弊社管理プランとMac mini構築プランをご用意。</p>
+  <div class="openclaw-grid">
+    <!-- CLOUD -->
+    <div class="oc-card cloud">
+      <span class="oc-badge cloud" data-ja="☁️ クラウドAI型" data-en="☁️ Cloud AI" data-zh="☁️ 云端AI型">☁️ クラウドAI型</span>
+      <h3 data-ja="Gemini + Claude プラン" data-en="Gemini + Claude Plan" data-zh="Gemini + Claude 方案">Gemini + Claude プラン</h3>
+      <p class="oc-desc" data-ja="GoogleのGeminiとAnthropicのClaudeを活用。高精度AI・クラウド管理・安定稼働。弊社レンタルサーバーで全て管理します。" data-en="Powered by Google Gemini & Anthropic Claude. High-precision AI, cloud-managed, stable operation." data-zh="采用Google Gemini和Anthropic Claude，高精度AI，云端管理，稳定运行。">GoogleのGeminiとAnthropicのClaudeを活用。高精度AI・クラウド管理・安定稼働。弊社レンタルサーバーで全て管理します。</p>
+      <div class="oc-tools">
+        <span class="oc-tool">Gemini 2.0</span>
+        <span class="oc-tool">Claude</span>
+        <span class="oc-tool">OpenClaw</span>
+        <span class="oc-tool">Telegram</span>
+      </div>
+      <div class="oc-price-box">
+        <div class="oc-price-row">
+          <span class="oc-price-label" data-ja="🖥️ 弊社管理プラン（月額）" data-en="🖥️ Managed Plan (monthly)" data-zh="🖥️ 托管方案（月费）">🖥️ 弊社管理プラン（月額）</span>
+          <span class="oc-price-val" data-ja="¥5,000/月" data-en="¥5,000/mo" data-zh="¥5,000/月">¥5,000/月</span>
+        </div>
+        <div class="oc-price-row">
+          <span class="oc-price-label" data-ja="💻 Mac mini構築プラン（初回）" data-en="💻 Mac mini Setup (one-time)" data-zh="💻 Mac mini安装方案（一次性）">💻 Mac mini構築プラン（初回）</span>
+          <span class="oc-price-val" data-ja="¥50,000/回" data-en="¥50,000" data-zh="¥50,000/次">¥50,000/回</span>
+        </div>
+        <p class="oc-price-note" data-ja="※ 税抜。AI APIのチャージが発生した場合は別途。" data-en="※ Ex. tax. API usage charges billed separately." data-zh="※ 不含税。AI API费用另计。">※ 税抜。AI APIのチャージが発生した場合は別途。</p>
+      </div>
+      <ul class="oc-features">
+        <li data-ja="OpenClaw環境構築・初期設定" data-en="OpenClaw setup & initial config" data-zh="OpenClaw环境搭建及初始配置">OpenClaw環境構築・初期設定</li>
+        <li data-ja="Gemini + Claude AI連携" data-en="Gemini + Claude AI integration" data-zh="Gemini + Claude AI集成">Gemini + Claude AI連携</li>
+        <li data-ja="Telegram/LINE/メール連携" data-en="Telegram / LINE / Email integration" data-zh="Telegram/LINE/邮件集成">Telegram/LINE/メール連携</li>
+        <li data-ja="Notion・カレンダー連携" data-en="Notion & Calendar integration" data-zh="Notion及日历集成">Notion・カレンダー連携</li>
+        <li data-ja="Mac miniプランは1週間トレーニング込" data-en="Mac mini plan includes 1-week training" data-zh="Mac mini方案含1周培训">Mac miniプランは1週間トレーニング込</li>
+      </ul>
+      <a href="#contact" class="btn-oc cloud" data-ja="このプランで相談する" data-en="Inquire about this plan" data-zh="咨询此方案">このプランで相談する</a>
+    </div>
+    <!-- LOCAL -->
+    <div class="oc-card local">
+      <span class="oc-badge local" data-ja="🖥️ ローカルAI型" data-en="🖥️ Local AI" data-zh="🖥️ 本地AI型">🖥️ ローカルAI型</span>
+      <h3 data-ja="Ollama + Qwen + Trae + Modoscope" data-en="Ollama + Qwen + Trae + Modoscope" data-zh="Ollama + Qwen + Trae + Modoscope">Ollama + Qwen + Trae + Modoscope</h3>
+      <p class="oc-desc" data-ja="完全ローカル動作のAIシステム。APIコスト不要・プライバシー保護・インターネット不要でも稼働可能。Mac miniに構築します。" data-en="Fully local AI system. No API costs, privacy-protected, works offline. Installed on your Mac mini." data-zh="完全本地运行的AI系统，无API费用，隐私保护，离线可用，安装在您的Mac mini上。">完全ローカル動作のAIシステム。APIコスト不要・プライバシー保護・インターネット不要でも稼働可能。Mac miniに構築します。</p>
+      <div class="oc-tools">
+        <span class="oc-tool">Ollama</span>
+        <span class="oc-tool">Qwen</span>
+        <span class="oc-tool">Trae</span>
+        <span class="oc-tool">Modoscope</span>
+        <span class="oc-tool">OpenClaw</span>
+      </div>
+      <div class="oc-price-box">
+        <div class="oc-price-row">
+          <span class="oc-price-label" data-ja="💻 Mac mini構築プラン（初回）" data-en="💻 Mac mini Setup (one-time)" data-zh="💻 Mac mini安装方案（一次性）">💻 Mac mini構築プラン（初回）</span>
+          <span class="oc-price-val" data-ja="¥50,000/回" data-en="¥50,000" data-zh="¥50,000/次">¥50,000/回</span>
+        </div>
+        <div class="oc-price-row">
+          <span class="oc-price-label" data-ja="🔄 追加サポート（月額）" data-en="🔄 Ongoing Support (monthly)" data-zh="🔄 持续支持（月费）">🔄 追加サポート（月額）</span>
+          <span class="oc-price-val" data-ja="要相談" data-en="On request" data-zh="可协商">要相談</span>
+        </div>
+        <p class="oc-price-note" data-ja="※ 税抜。構築後のAI利用料は一切かかりません。" data-en="※ Ex. tax. No AI usage fees after setup." data-zh="※ 不含税。安装后无任何AI使用费用。">※ 税抜。構築後のAI利用料は一切かかりません。</p>
+      </div>
+      <ul class="oc-features">
+        <li data-ja="Mac miniへのローカルAI環境構築" data-en="Local AI environment on Mac mini" data-zh="Mac mini本地AI环境搭建">Mac miniへのローカルAI環境構築</li>
+        <li data-ja="Ollama + Qwen + Trae + Modoscope設定" data-en="Ollama + Qwen + Trae + Modoscope setup" data-zh="Ollama + Qwen + Trae + Modoscope配置">Ollama + Qwen + Trae + Modoscope設定</li>
+        <li data-ja="OpenClaw連携・Telegram接続" data-en="OpenClaw integration & Telegram connection" data-zh="OpenClaw集成及Telegram连接">OpenClaw連携・Telegram接続</li>
+        <li data-ja="1週間トレーニング・操作指導" data-en="1-week training & operation guide" data-zh="1周培训及操作指导">1週間トレーニング・操作指導</li>
+        <li data-ja="APIコスト一切不要（完全無料運用）" data-en="Zero API costs after setup" data-zh="安装后零API费用运行">APIコスト一切不要（完全無料運用）</li>
+      </ul>
+      <a href="#contact" class="btn-oc local" data-ja="このプランで相談する" data-en="Inquire about this plan" data-zh="咨询此方案">このプランで相談する</a>
     </div>
   </div>
 </section>
 
 <!-- FLOW -->
 <section class="flow" id="flow">
-  <p class="section-label">How It Works</p>
-  <h2 class="section-title">ご依頼の流れ</h2>
-  <p class="section-desc">お問い合わせから納品まで、シンプルな4ステップで対応します。</p>
+  <p class="section-label" data-ja="How It Works" data-en="How It Works" data-zh="服务流程">How It Works</p>
+  <h2 class="section-title" data-ja="ご依頼の流れ" data-en="Our Process" data-zh="服务流程">ご依頼の流れ</h2>
+  <p class="section-desc" data-ja="お問い合わせから納品まで、シンプルな4ステップ。" data-en="From inquiry to delivery in 4 simple steps." data-zh="从询盘到交付，简单4步完成。">お問い合わせから納品まで、シンプルな4ステップ。</p>
   <div class="flow-steps">
     <div class="flow-step">
       <div class="flow-num">1</div>
-      <h4>無料相談</h4>
-      <p>フォーム・LINEからお気軽にご連絡ください。要件をヒアリングします。</p>
+      <h4 data-ja="無料相談" data-en="Free Consult" data-zh="免费咨询">無料相談</h4>
+      <p data-ja="フォーム・LINEからご連絡。要件をヒアリングします。" data-en="Contact us via form or LINE. We'll discuss your needs." data-zh="通过表单或LINE联系我们，了解您的需求。">フォーム・LINEからご連絡。要件をヒアリングします。</p>
     </div>
     <div class="flow-step">
       <div class="flow-num">2</div>
-      <h4>お見積もり</h4>
-      <p>ご要件に合わせた詳細なお見積もりと提案書を3営業日以内にご提出。</p>
+      <h4 data-ja="お見積もり" data-en="Proposal" data-zh="报价">お見積もり</h4>
+      <p data-ja="3営業日以内に詳細な提案書とお見積もりをご提出。" data-en="Detailed proposal & quote within 3 business days." data-zh="3个工作日内提交详细方案和报价。">3営業日以内に詳細な提案書とお見積もりをご提出。</p>
     </div>
     <div class="flow-step">
       <div class="flow-num">3</div>
-      <h4>制作・構築</h4>
-      <p>ご承認後、開発スタート。進捗はリアルタイムで共有します。</p>
+      <h4 data-ja="制作・構築" data-en="Development" data-zh="开发构建">制作・構築</h4>
+      <p data-ja="ご承認後に開発スタート。進捗はリアルタイム共有。" data-en="Development starts after approval. Progress shared in real time." data-zh="获批后开始开发，实时共享进度。">ご承認後に開発スタート。進捗はリアルタイム共有。</p>
     </div>
     <div class="flow-step">
       <div class="flow-num">4</div>
-      <h4>納品・サポート</h4>
-      <p>検収・納品後も継続サポート。追加改修・運用保守も対応します。</p>
+      <h4 data-ja="納品・サポート" data-en="Delivery & Support" data-zh="交付与支持">納品・サポート</h4>
+      <p data-ja="検収・納品後も継続サポート。保守・改修も対応。" data-en="Ongoing support after delivery. Maintenance available." data-zh="交付后持续提供支持和维护服务。">検収・納品後も継続サポート。保守・改修も対応。</p>
     </div>
   </div>
 </section>
 
 <!-- PRICING -->
 <section class="pricing" id="pricing">
-  <p class="section-label">Pricing</p>
-  <h2 class="section-title">料金プラン</h2>
-  <p class="section-desc">まずはお気軽にご相談ください。要件に合わせたカスタム見積もりも承ります。</p>
+  <p class="section-label" data-ja="Pricing" data-en="Pricing" data-zh="价格">Pricing</p>
+  <h2 class="section-title" data-ja="料金プラン" data-en="Pricing Plans" data-zh="价格方案">料金プラン</h2>
+  <p class="section-desc" data-ja="全て税抜価格です。要件によるカスタム見積もりも承ります。" data-en="All prices ex. tax. Custom quotes available." data-zh="以下价格均不含税，可按需定制报价。">全て税抜価格です。要件によるカスタム見積もりも承ります。</p>
   <div class="pricing-grid">
     <div class="price-card">
       <p class="price-plan">LIGHT</p>
-      <h3 class="price-name">ライトプラン</h3>
-      <div class="price-amount">¥50,000<span> ~</span></div>
-      <p class="price-from">LP・シンプルHP・基礎AI導入</p>
+      <h3 class="price-name" data-ja="ライトプラン" data-en="Light Plan" data-zh="轻量方案">ライトプラン</h3>
+      <div class="price-amount">¥30,000<span data-ja=" ～（税抜）" data-en=" ～ (ex.tax)" data-zh=" ～（不含税）"> ～（税抜）</span></div>
+      <p class="price-from" data-ja="LP・シンプルHP" data-en="LP / Simple Website" data-zh="落地页 / 简单网站">LP・シンプルHP</p>
       <ul class="price-features">
-        <li>ランディングページ制作</li>
-        <li>問い合わせフォーム設置</li>
-        <li>LINE公式アカウント連携</li>
-        <li>スマホ対応</li>
-        <li>1ヶ月サポート</li>
+        <li data-ja="ランディングページ制作" data-en="Landing page design" data-zh="落地页设计">ランディングページ制作</li>
+        <li data-ja="問い合わせフォーム" data-en="Contact form" data-zh="联系表单">問い合わせフォーム</li>
+        <li data-ja="LINE連携" data-en="LINE integration" data-zh="LINE集成">LINE連携</li>
+        <li data-ja="スマホ・PC対応" data-en="Mobile & PC ready" data-zh="手机和PC适配">スマホ・PC対応</li>
+        <li data-ja="1ヶ月サポート" data-en="1-month support" data-zh="1个月支持">1ヶ月サポート</li>
       </ul>
-      <a href="#contact" class="btn-plan btn-plan-outline">相談する</a>
+      <a href="#contact" class="btn-plan btn-plan-outline" data-ja="相談する" data-en="Inquire" data-zh="咨询">相談する</a>
     </div>
     <div class="price-card featured">
-      <span class="price-badge">人気No.1</span>
+      <span class="price-badge" data-ja="人気No.1" data-en="Most Popular" data-zh="最受欢迎">人気No.1</span>
       <p class="price-plan">STANDARD</p>
-      <h3 class="price-name">スタンダードプラン</h3>
-      <div class="price-amount">¥150,000<span> ~</span></div>
-      <p class="price-from">コーポレートサイト・AI連携・業務自動化</p>
+      <h3 class="price-name" data-ja="スタンダードプラン" data-en="Standard Plan" data-zh="标准方案">スタンダードプラン</h3>
+      <div class="price-amount">¥150,000<span data-ja=" ～（税抜）" data-en=" ～ (ex.tax)" data-zh=" ～（不含税）"> ～（税抜）</span></div>
+      <p class="price-from" data-ja="コーポレートサイト＋AI連携" data-en="Corporate site + AI integration" data-zh="企业网站 + AI集成">コーポレートサイト＋AI連携</p>
       <ul class="price-features">
-        <li>コーポレートサイト制作</li>
-        <li>AIチャットボット導入</li>
-        <li>業務フロー自動化（3工程）</li>
-        <li>Notion連携</li>
-        <li>LINE・メール自動応答</li>
-        <li>3ヶ月サポート</li>
+        <li data-ja="コーポレートサイト制作" data-en="Corporate website" data-zh="企业网站制作">コーポレートサイト制作</li>
+        <li data-ja="AIチャットボット導入" data-en="AI chatbot integration" data-zh="AI聊天机器人集成">AIチャットボット導入</li>
+        <li data-ja="OpenClaw業務自動化" data-en="OpenClaw automation" data-zh="OpenClaw业务自动化">OpenClaw業務自動化</li>
+        <li data-ja="Notion・LINE連携" data-en="Notion & LINE integration" data-zh="Notion和LINE集成">Notion・LINE連携</li>
+        <li data-ja="3ヶ月サポート" data-en="3-month support" data-zh="3个月支持">3ヶ月サポート</li>
       </ul>
-      <a href="#contact" class="btn-plan btn-plan-primary">相談する</a>
+      <a href="#contact" class="btn-plan btn-plan-primary" data-ja="相談する" data-en="Inquire" data-zh="咨询">相談する</a>
     </div>
     <div class="price-card">
       <p class="price-plan">PRO</p>
-      <h3 class="price-name">プロプラン</h3>
-      <div class="price-amount">¥500,000<span> ~</span></div>
-      <p class="price-from">APP開発・フルオートメーション</p>
+      <h3 class="price-name" data-ja="プロプラン" data-en="Pro Plan" data-zh="专业方案">プロプラン</h3>
+      <div class="price-amount">¥500,000<span data-ja=" ～（税抜）" data-en=" ～ (ex.tax)" data-zh=" ～（不含税）"> ～（税抜）</span></div>
+      <p class="price-from" data-ja="APP開発＋フルオートメーション" data-en="App dev + full automation" data-zh="APP开发 + 全自动化">APP開発＋フルオートメーション</p>
       <ul class="price-features">
-        <li>モバイルアプリ開発（iOS/Android）</li>
-        <li>完全AI自動化システム</li>
-        <li>決済システム組み込み</li>
-        <li>管理画面・ダッシュボード</li>
-        <li>APIフル連携</li>
-        <li>6ヶ月サポート</li>
+        <li data-ja="モバイルアプリ開発" data-en="Mobile app development" data-zh="移动应用开发">モバイルアプリ開発</li>
+        <li data-ja="完全AI自動化システム" data-en="Full AI automation" data-zh="全AI自动化系统">完全AI自動化システム</li>
+        <li data-ja="決済システム組み込み" data-en="Payment system" data-zh="支付系统集成">決済システム組み込み</li>
+        <li data-ja="管理ダッシュボード" data-en="Admin dashboard" data-zh="管理控制台">管理ダッシュボード</li>
+        <li data-ja="6ヶ月サポート" data-en="6-month support" data-zh="6个月支持">6ヶ月サポート</li>
       </ul>
-      <a href="#contact" class="btn-plan btn-plan-outline">相談する</a>
+      <a href="#contact" class="btn-plan btn-plan-outline" data-ja="相談する" data-en="Inquire" data-zh="咨询">相談する</a>
     </div>
   </div>
-  <p class="pricing-note">※ 表示価格は目安です。要件に応じたカスタム見積もりも承ります。<br>決済機能は近日実装予定です。</p>
+  <p class="pricing-note" data-ja="※ 全て税抜価格です。決済機能は近日実装予定。" data-en="※ All prices ex. tax. Payment feature coming soon." data-zh="※ 以上均为不含税价格。支付功能即将上线。">※ 全て税抜価格です。決済機能は近日実装予定。</p>
 </section>
 
 <!-- LINE -->
 <section class="line-section">
-  <h2>💬 LINEで気軽に相談</h2>
-  <p>「まず話を聞いてみたい」という方はLINE公式アカウントへ。<br>
-  担当者が直接ご対応します。お見積もりも無料です。</p>
-  <a href="https://line.me/ti/p/@ips-it-solutions" class="btn-line" target="_blank" rel="noopener">
-    LINE で相談する（無料）
-  </a>
-  <p style="color:rgba(255,255,255,0.6);font-size:0.8rem;margin-top:1rem;">※ LINE公式アカウント設定後に有効になります</p>
+  <h2 data-ja="💬 LINEで気軽に相談" data-en="💬 Chat with us on LINE" data-zh="💬 LINE 随时咨询">💬 LINEで気軽に相談</h2>
+  <p data-ja="「まず話だけ聞きたい」方もお気軽に。担当者が直接ご対応します。" data-en="Just want to talk first? Our team will respond directly." data-zh="只是想先了解一下？我们的团队将直接回复您。">「まず話だけ聞きたい」方もお気軽に。担当者が直接ご対応します。</p>
+  <a href="https://line.me/ti/p/@ips-it-solutions" class="btn-line" target="_blank" data-ja="LINE で相談する（無料）" data-en="Chat on LINE (Free)" data-zh="LINE 免费咨询">LINE で相談する（無料）</a>
 </section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <p class="section-label">Contact</p>
-  <h2 class="section-title">お問い合わせ・発注</h2>
-  <p class="section-desc">ご質問・お見積もり・ご発注は下記フォームからお気軽にどうぞ。<br>3営業日以内にご返信します。</p>
+  <h2 class="section-title" data-ja="お問い合わせ・発注" data-en="Contact & Order" data-zh="联系与下单">お問い合わせ・発注</h2>
+  <p class="section-desc" data-ja="ご質問・お見積もり・ご発注はこちらから。3営業日以内にご返信します。" data-en="Questions, quotes & orders welcome. Reply within 3 business days." data-zh="欢迎咨询、报价和下单，3个工作日内回复。">ご質問・お見積もり・ご発注はこちらから。3営業日以内にご返信します。</p>
   <div class="contact-wrap">
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contactForm">
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
       <div class="form-row">
-        <label>お名前 <span>*</span></label>
-        <input type="text" name="name" placeholder="山田 太郎" required>
+        <label data-ja="お名前" data-en="Name" data-zh="姓名">お名前 <span>*</span></label>
+        <input type="text" name="name" required>
       </div>
       <div class="form-row">
-        <label>会社名</label>
-        <input type="text" name="company" placeholder="株式会社○○">
+        <label data-ja="会社名" data-en="Company" data-zh="公司名">会社名</label>
+        <input type="text" name="company">
       </div>
       <div class="form-row">
-        <label>メールアドレス <span>*</span></label>
-        <input type="email" name="email" placeholder="example@company.com" required>
+        <label data-ja="メールアドレス" data-en="Email" data-zh="邮箱">メールアドレス <span>*</span></label>
+        <input type="email" name="email" required>
       </div>
       <div class="form-row">
-        <label>電話番号</label>
-        <input type="tel" name="phone" placeholder="090-0000-0000">
-      </div>
-      <div class="form-row">
-        <label>ご希望のサービス <span>*</span></label>
+        <label data-ja="ご希望のサービス" data-en="Service" data-zh="所需服务">ご希望のサービス <span>*</span></label>
         <select name="service" required>
-          <option value="">選択してください</option>
-          <option value="ai">AIツール構築</option>
-          <option value="automation">OpenClawオートメーション</option>
-          <option value="website">ホームページ制作</option>
-          <option value="app">APP制作</option>
-          <option value="other">その他・複合</option>
+          <option value="" data-ja="選択してください" data-en="Select..." data-zh="请选择">選択してください</option>
+          <option value="ai" data-ja="AIツール構築" data-en="AI Tool Development" data-zh="AI工具构建">AIツール構築</option>
+          <option value="openclaw-cloud" data-ja="OpenClaw（クラウドAI型）" data-en="OpenClaw (Cloud AI)" data-zh="OpenClaw（云端AI）">OpenClaw（クラウドAI型）</option>
+          <option value="openclaw-local" data-ja="OpenClaw（ローカルAI型）" data-en="OpenClaw (Local AI)" data-zh="OpenClaw（本地AI）">OpenClaw（ローカルAI型）</option>
+          <option value="website" data-ja="ホームページ制作" data-en="Website Development" data-zh="网站制作">ホームページ制作</option>
+          <option value="app" data-ja="APP制作" data-en="App Development" data-zh="APP开发">APP制作</option>
+          <option value="other" data-ja="その他・複合" data-en="Other / Combined" data-zh="其他/组合">その他・複合</option>
         </select>
       </div>
       <div class="form-row">
-        <label>ご予算（目安）</label>
-        <select name="budget">
-          <option value="">選択してください</option>
-          <option value="50k">〜5万円</option>
-          <option value="100k">5〜10万円</option>
-          <option value="300k">10〜30万円</option>
-          <option value="500k">30〜50万円</option>
-          <option value="500k+">50万円以上</option>
-          <option value="consult">要相談</option>
-        </select>
+        <label data-ja="お問い合わせ内容" data-en="Message" data-zh="咨询内容">お問い合わせ内容 <span>*</span></label>
+        <textarea name="message" required></textarea>
       </div>
-      <div class="form-row">
-        <label>お問い合わせ内容 <span>*</span></label>
-        <textarea name="message" placeholder="ご要件・ご質問をご自由にお書きください。" required></textarea>
-      </div>
-      <button type="submit" class="form-submit">送信する →</button>
-      <p class="form-note">送信後、自動返信メールをお送りします。<br>3営業日以内に担当者よりご連絡いたします。</p>
+      <button type="submit" class="form-submit" data-ja="送信する →" data-en="Send →" data-zh="发送 →">送信する →</button>
+      <p class="form-note" data-ja="※ 送信後、自動返信メールをお送りします。3営業日以内にご連絡いたします。" data-en="※ Auto-reply will be sent. We'll contact you within 3 business days." data-zh="※ 提交后将收到自动回复邮件，3个工作日内联系您。">※ 送信後、自動返信メールをお送りします。3営業日以内にご連絡いたします。</p>
     </form>
   </div>
 </section>
@@ -482,33 +480,42 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">IPS IT Solutions</div>
-  <div class="footer-sub">昌林メディカルジャパン株式会社 生成AI構築事業企画部</div>
+  <div class="footer-sub" data-ja="昌林メディカルジャパン株式会社 生成AI構築事業企画部" data-en="Syorin Medical Japan Co., Ltd. – AI Business Division" data-zh="昌林医疗日本株式会社 生成AI事业部">昌林メディカルジャパン株式会社 生成AI構築事業企画部</div>
   <div class="footer-links">
-    <a href="#services">サービス</a>
-    <a href="#pricing">料金</a>
-    <a href="#contact">お問い合わせ</a>
-    <a href="../index.html">昌林メディカル</a>
+    <a href="#services" data-ja="サービス" data-en="Services" data-zh="服务">サービス</a>
+    <a href="#openclaw" data-ja="OpenClaw" data-en="OpenClaw" data-zh="OpenClaw">OpenClaw</a>
+    <a href="#pricing" data-ja="料金" data-en="Pricing" data-zh="价格">料金</a>
+    <a href="#contact" data-ja="お問い合わせ" data-en="Contact" data-zh="联系">お問い合わせ</a>
+    <a href="../index.html" data-ja="昌林メディカル" data-en="Syorin Medical" data-zh="昌林医疗">昌林メディカル</a>
   </div>
   <div class="footer-copy">© 2026 IPS IT Solutions / Syorin Medical Japan Co., Ltd. All Rights Reserved.</div>
 </footer>
 
 <script>
-// スムーズスクロール
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if(target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+// LANGUAGE SWITCHER
+function setLang(lang){
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector(`[onclick="setLang('${lang}')"]`).classList.add('active');
+  document.querySelectorAll('[data-ja]').forEach(el=>{
+    const val = el.getAttribute('data-'+lang);
+    if(!val) return;
+    if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'){
+      el.placeholder = val;
+    } else if(el.tagName==='OPTION'){
+      el.textContent = val;
+    } else {
+      el.innerHTML = val;
     }
   });
-});
+  document.documentElement.lang = lang==='zh'?'zh-CN':lang;
+}
 
-// フォーム送信
-document.getElementById('contactForm').addEventListener('submit', async function(e) {
-  const btn = this.querySelector('.form-submit');
-  btn.textContent = '送信中...';
-  btn.disabled = true;
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
 });
 </script>
 </body>
